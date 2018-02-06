@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "999459558922",
+    "firebase_url": "https://bicyclecity-v2.firebaseio.com",
+    "project_id": "bicyclecity-v2",
+    "storage_bucket": "bicyclecity-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999459558922:android:0175d16369e078f4",
+        "android_client_info": {
+          "package_name": "com.diploma.volodymyr.bicyclecity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999459558922-ovfs57iqacutnh2d7b8a645q9dm0s6dt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7TLJhngEFGM1Q3slDM-qGBN0a4TzKP4c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
