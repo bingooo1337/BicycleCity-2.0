@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "999459558922-is018rfalvog77tj9f0qn8aifmqdt8uv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diploma.volodymyr.bicyclecity",
+            "certificate_hash": "42cd7fff42de11e988ee3854d2133bb1d5c08eec"
+          }
+        },
+        {
           "client_id": "999459558922-ovfs57iqacutnh2d7b8a645q9dm0s6dt.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999459558922-ovfs57iqacutnh2d7b8a645q9dm0s6dt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
