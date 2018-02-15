@@ -1,7 +1,7 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth
 
-/**
- * Created by volodymyr on 14.02.18.
- */
 interface ISignInPresenter {
+    fun signIn(login: String, password: String)
+    fun signUpClicked()
+    fun registrationClicked()
 }

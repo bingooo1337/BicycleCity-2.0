@@ -6,7 +6,7 @@ import com.diploma.volodymyr.bicyclecity.presentation.view.BaseView
 import com.diploma.volodymyr.bicyclecity.showShortToast
 
 @SuppressLint("Registered")
-class BaseActivity : MvpAppCompatActivity(), BaseView {
+abstract class BaseActivity : MvpAppCompatActivity(), BaseView {
     override fun showToastMessage(message: String) {
         showShortToast(message)
     }
