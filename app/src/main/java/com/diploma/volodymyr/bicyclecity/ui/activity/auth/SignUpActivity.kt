@@ -8,6 +8,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl.SignUpPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignUpView
+import com.diploma.volodymyr.bicyclecity.showShortToast
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -58,6 +59,10 @@ class SignUpActivity : BaseActivity(), SignUpView {
 
     override fun closeScreen() {
         finish()
+    }
+
+    override fun showToastMessage(message: String) {
+        showShortToast(message)
     }
 
     private fun initView() {

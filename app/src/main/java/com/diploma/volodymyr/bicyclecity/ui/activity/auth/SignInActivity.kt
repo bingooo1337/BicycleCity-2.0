@@ -9,6 +9,7 @@ import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl.SignIn
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
+import com.diploma.volodymyr.bicyclecity.ui.activity.navigation.MenuActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : BaseActivity(), SignInView {
@@ -26,6 +27,16 @@ class SignInActivity : BaseActivity(), SignInView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
         initView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        signInPresenter.checkCurrentUser()
+    }
+
+    override fun openApp() {
+        startActivity(MenuActivity.getIntent(this))
+        finish()
     }
 
     override fun showLoginError(error: String) {

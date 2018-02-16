@@ -2,7 +2,7 @@ package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignInPresenter
-import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.impl.BasePresenter
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignInView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -15,18 +15,26 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
         firebaseAuth = FirebaseAuth.getInstance()
     }
 
+    override fun checkCurrentUser() {
+        firebaseAuth.currentUser?.let {
+            viewState.openApp()
+        }
+    }
+
     override fun signIn(login: String, password: String) {
         if (validate(login, password)) {
             viewState.showLoading()
             firebaseAuth.signInWithEmailAndPassword(login, password)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            viewState.hideLoading()
-                            viewState.showToastMessage("Successful login!")
-                        } else {
-                            viewState.hideLoading()
-                            viewState.showToastMessage("Error login!")
-                        }
+                    .addOnSuccessListener {
+                        viewState.hideLoading()
+                        viewState.openApp()
+                    }
+                    .addOnFailureListener {
+                        viewState.hideLoading()
+                        if (it.localizedMessage != null)
+                            viewState.showToastMessage(it.localizedMessage)
+                        else
+                            viewState.showToastMessage("Sign in failure")
                     }
         }
     }

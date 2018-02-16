@@ -3,7 +3,7 @@ package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.data.User
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignUpPresenter
-import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.impl.BasePresenter
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignUpView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

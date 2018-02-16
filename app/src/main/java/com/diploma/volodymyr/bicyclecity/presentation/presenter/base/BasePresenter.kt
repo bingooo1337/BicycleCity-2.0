@@ -1,4 +1,4 @@
-package com.diploma.volodymyr.bicyclecity.presentation.presenter.base.impl
+package com.diploma.volodymyr.bicyclecity.presentation.presenter.base
 
 import com.arellomobile.mvp.MvpPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.BaseView

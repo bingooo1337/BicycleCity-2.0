@@ -15,4 +15,5 @@ interface SignInView : BaseView {
     fun showPasswordError(error: String)
     fun hideLoading()
     fun startSignUp()
+    fun openApp()
 }
