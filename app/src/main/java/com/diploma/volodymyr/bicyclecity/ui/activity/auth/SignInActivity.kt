@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : BaseActivity(), SignInView {
     companion object {
-        val TAG = "SignInActivity"
+        val TAG = SignInActivity::class.java.simpleName
         fun getIntent(context: Context) = Intent(context, SignInActivity::class.java)
     }
 
@@ -45,7 +45,7 @@ class SignInActivity : BaseActivity(), SignInView {
     }
 
     override fun startSignUp() {
-//        startActivity(SignUpActivity.getIntent(this))
+        startActivity(SignUpActivity.getIntent(this))
     }
 
     private fun initView() {

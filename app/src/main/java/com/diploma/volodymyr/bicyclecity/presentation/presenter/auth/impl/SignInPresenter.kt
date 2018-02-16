@@ -35,10 +35,6 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
         viewState.startSignUp()
     }
 
-    override fun registrationClicked() {
-        viewState.startSignUp()
-    }
-
     private fun validate(login: String, password: String): Boolean {
         var validated = true
 
