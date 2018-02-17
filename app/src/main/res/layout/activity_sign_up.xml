@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.diploma.volodymyr.bicyclecity.RegistrationActivity">
+    tools:context="com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/firstNameTextInputLayout"
@@ -23,7 +23,8 @@
             android:id="@+id/firstNameEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/first_name" />
+            android:hint="@string/first_name"
+            android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -40,7 +41,8 @@
             android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/last_name" />
+            android:hint="@string/last_name"
+            android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -58,7 +60,8 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/email" />
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -76,7 +79,8 @@
             android:id="@+id/numberEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/mobile_number" />
+            android:hint="@string/mobile_number"
+            android:inputType="phone" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -94,7 +98,8 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
