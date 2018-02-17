@@ -15,7 +15,6 @@ import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
-import com.diploma.volodymyr.bicyclecity.ui.fragment.NewsFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -43,19 +42,15 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
     }
 
     override fun openGroupRides() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun openCompetitions() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun openMap() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun openSettings() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun openSignIn() {
