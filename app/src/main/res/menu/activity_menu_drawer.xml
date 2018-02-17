@@ -6,32 +6,33 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_news"
+            android:checked="true"
             android:icon="@drawable/ic_news"
-            android:title="News &amp; Events" />
+            android:title="@string/news_amp_events" />
         <item
             android:id="@+id/nav_group"
             android:icon="@drawable/ic_group"
-            android:title="Group Rides" />
+            android:title="@string/group_rides" />
         <item
             android:id="@+id/nav_competition"
             android:icon="@drawable/ic_competitions"
-            android:title="Competitions" />
+            android:title="@string/competitions" />
         <item
             android:id="@+id/nav_map"
             android:icon="@drawable/ic_map"
-            android:title="Map" />
+            android:title="@string/map" />
     </group>
 
-    <item android:title="Other">
+    <item android:title="@string/other">
         <menu>
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_settings"
-                android:title="Settings" />
+                android:title="@string/settings" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_logout"
-                android:title="Log out" />
+                android:title="@string/log_out" />
         </menu>
     </item>
 
