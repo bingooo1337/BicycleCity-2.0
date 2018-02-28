@@ -1,6 +1,7 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride
 
 import com.google.android.gms.location.places.Place
+import com.google.android.gms.maps.model.LatLng
 import java.util.*
 
 interface ICreateGroupRidePresenter {
@@ -12,4 +13,5 @@ interface ICreateGroupRidePresenter {
     fun chooseDateAndTime()
     fun dateChoosed(calendar: Calendar)
     fun timeChoosed(calendar: Calendar)
+    fun createGroupRide(title: String, desc: String)
 }

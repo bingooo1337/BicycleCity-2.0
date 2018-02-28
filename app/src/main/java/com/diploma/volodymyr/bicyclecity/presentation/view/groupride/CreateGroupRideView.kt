@@ -22,4 +22,5 @@ interface CreateGroupRideView : BaseView {
     fun chooseDate()
     fun chooseTime(calendar: Calendar)
     fun dateTimeChoosed(calendar: Calendar)
+    fun closeScreen()
 }

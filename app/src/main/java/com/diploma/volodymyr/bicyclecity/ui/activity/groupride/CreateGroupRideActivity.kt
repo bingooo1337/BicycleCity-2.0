@@ -11,6 +11,8 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.CreateGroupRidePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideView
@@ -53,6 +55,18 @@ class CreateGroupRideActivity : BaseActivity(), CreateGroupRideView, OnMapReadyC
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_group_ride_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.create_group_ride) {
+            presenter.createGroupRide(title_et.text.toString(), description_et.text.toString())
+        }
+        return true
     }
 
     override fun chooseDate() {
@@ -151,6 +165,10 @@ class CreateGroupRideActivity : BaseActivity(), CreateGroupRideView, OnMapReadyC
 
     override fun openChoosingFinish() {
         choosePointWithCode(REQUEST_FINISH_PLACE_PICKER)
+    }
+
+    override fun closeScreen() {
+        finish()
     }
 
     private fun choosePointWithCode(code: Int) {
