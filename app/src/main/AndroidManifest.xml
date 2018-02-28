@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.diploma.volodymyr.bicyclecity">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -8,7 +16,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCjeU5QRxtMDS4ltOPlyerB744f7okKsoA" />
+
         <activity
             android:name=".ui.activity.navigation.MenuActivity"
             android:label="@string/title_activity_menu"
@@ -21,6 +34,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.auth.SignUpActivity" />
+        <activity
+            android:name=".ui.activity.groupride.CreateGroupRideActivity"
+            android:label="Create group ride" />
     </application>
 
 </manifest>

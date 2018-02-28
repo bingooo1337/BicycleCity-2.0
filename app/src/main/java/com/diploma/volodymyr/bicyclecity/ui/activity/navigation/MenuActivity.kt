@@ -12,6 +12,7 @@ import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.MenuPresenter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
@@ -42,6 +43,7 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
     }
 
     override fun openGroupRides() {
+        startActivity(CreateGroupRideActivity.getIntent(this))
     }
 
     override fun openCompetitions() {
