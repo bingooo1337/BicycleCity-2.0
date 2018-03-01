@@ -2,12 +2,14 @@ package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl
 
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.data.GroupRide
+import com.diploma.volodymyr.bicyclecity.getGeoPoint
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.ICreateGroupRidePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideView
 import com.google.android.gms.location.places.Place
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.GeoPoint
 import java.util.*
 
 @InjectViewState
@@ -64,7 +66,7 @@ class CreateGroupRidePresenter : BasePresenter<CreateGroupRideView>(), ICreateGr
     }
 
     override fun createGroupRide(title: String, desc: String) {
-        val groupRide = GroupRide(title, desc, date, start, finish)
+        val groupRide = GroupRide(title, desc, date, start!!.getGeoPoint(), finish!!.getGeoPoint())
         db.collection("group_rides")
                 .document().set(groupRide)
                 .addOnSuccessListener {

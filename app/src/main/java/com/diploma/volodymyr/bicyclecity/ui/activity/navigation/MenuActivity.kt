@@ -16,6 +16,7 @@ import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideAc
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
+import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -43,7 +44,10 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
     }
 
     override fun openGroupRides() {
-        startActivity(CreateGroupRideActivity.getIntent(this))
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, GroupRidesFragment(), "GROUP_RIDES")
+                .addToBackStack(null)
+                .commit()
     }
 
     override fun openCompetitions() {
