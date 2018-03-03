@@ -1,6 +1,7 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
+import com.diploma.volodymyr.bicyclecity.Const.USERS
 import com.diploma.volodymyr.bicyclecity.data.User
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignUpPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
@@ -55,7 +56,7 @@ class SignUpPresenter : BasePresenter<SignUpView>(), ISignUpPresenter {
     }
 
     private fun addUserToDatabase(uid: String, firstName: String, lastName: String, email: String, number: String) =
-            db.collection("users").document(uid)
+            db.collection(USERS).document(uid)
                     .set(User(email, firstName, lastName, number))
                     .addOnSuccessListener {
                         viewState.hideLoading()

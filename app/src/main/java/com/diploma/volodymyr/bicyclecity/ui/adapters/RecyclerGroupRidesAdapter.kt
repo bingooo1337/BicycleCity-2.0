@@ -3,7 +3,7 @@ package com.diploma.volodymyr.bicyclecity.ui.adapters
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import com.diploma.volodymyr.bicyclecity.Const.Companion.GROUP_RIDE_DATEFORMAT
+import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDE_DATEFORMAT
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.data.GroupRide
 import com.diploma.volodymyr.bicyclecity.inflate
