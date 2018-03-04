@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDE_DATEFORMAT
 import com.diploma.volodymyr.bicyclecity.R
-import com.diploma.volodymyr.bicyclecity.data.GroupRide
+import com.diploma.volodymyr.bicyclecity.data.model.GroupRide
 import com.diploma.volodymyr.bicyclecity.inflate
 import kotlinx.android.synthetic.main.recycler_group_rides_item.view.*
 import kotlin.collections.ArrayList

@@ -1,4 +1,4 @@
-package com.diploma.volodymyr.bicyclecity.data
+package com.diploma.volodymyr.bicyclecity.data.model
 
 data class User(var email: String = "",
                 var firstName: String = "",

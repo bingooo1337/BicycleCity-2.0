@@ -2,7 +2,7 @@ package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl
 
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDES
-import com.diploma.volodymyr.bicyclecity.data.GroupRide
+import com.diploma.volodymyr.bicyclecity.data.model.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.IGroupRidesListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.GroupRidesListView

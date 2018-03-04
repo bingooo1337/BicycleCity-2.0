@@ -1,7 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 
 import com.diploma.volodymyr.bicyclecity.R
-import com.diploma.volodymyr.bicyclecity.data.GroupRide
+import com.diploma.volodymyr.bicyclecity.data.model.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRidesListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.GroupRidesListView
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment

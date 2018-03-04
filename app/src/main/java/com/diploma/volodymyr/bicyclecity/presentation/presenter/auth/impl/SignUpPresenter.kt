@@ -2,7 +2,7 @@ package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.Const.USERS
-import com.diploma.volodymyr.bicyclecity.data.User
+import com.diploma.volodymyr.bicyclecity.data.model.User
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignUpPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignUpView
