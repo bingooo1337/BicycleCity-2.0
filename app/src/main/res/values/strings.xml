@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Bicycle City</string>
     <string name="geo_api_key">AIzaSyCjeU5QRxtMDS4ltOPlyerB744f7okKsoA</string>
+    <string name="geo_api_server_key">AIzaSyC2jsENnu-uLEhXNkXwnIdM5e_qzKCpBO8</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

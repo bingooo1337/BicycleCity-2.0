@@ -3,8 +3,8 @@ package com.diploma.volodymyr.bicyclecity
 import android.app.Application
 import com.diploma.volodymyr.bicyclecity.dagger.component.DaggerGoogleMapsComponent
 import com.diploma.volodymyr.bicyclecity.dagger.component.GoogleMapsComponent
-import com.diploma.volodymyr.bicyclecity.dagger.module.AppModule
 import com.diploma.volodymyr.bicyclecity.dagger.module.GoogleMapsApiModule
+import com.diploma.volodymyr.bicyclecity.dagger.module.GoogleMapsDirectionsModule
 
 class App : Application() {
     companion object {
@@ -20,7 +20,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         googleMapsComponent = DaggerGoogleMapsComponent.builder()
-                .googleMapsApiModule(GoogleMapsApiModule())
+//                .googleMapsApiModule(GoogleMapsApiModule())
+                .googleMapsDirectionsModule(GoogleMapsDirectionsModule())
                 .build()
     }
 
