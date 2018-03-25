@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
@@ -11,12 +12,12 @@ import android.view.MenuItem
 import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.MenuPresenter
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDES_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.R
-import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
-import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesFragment
+import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -36,27 +37,11 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
         initView()
     }
 
-    override fun openNews() {
-//        supportFragmentManager.beginTransaction()
-//                .add(R.id.fragment_container, NewsFragment(), "NEWS")
-//                .addToBackStack(null)
-//                .commit()
-    }
-
-    override fun openGroupRides() {
+    override fun openFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, GroupRidesFragment(), "GROUP_RIDES")
+                .replace(R.id.fragment_container, fragment, tag)
                 .addToBackStack(null)
                 .commit()
-    }
-
-    override fun openCompetitions() {
-    }
-
-    override fun openMap() {
-    }
-
-    override fun openSettings() {
     }
 
     override fun openSignIn() {
@@ -99,6 +84,11 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
         setSupportActionBar(toolbar)
         nav_view.setNavigationItemSelectedListener(this)
         onNavigationItemSelected(nav_view.menu.findItem(R.id.nav_news))
+
+        fab.setOnClickListener {
+            if (supportFragmentManager.findFragmentByTag(GROUP_RIDES_FRAGMENT) != null)
+                startActivity(CreateGroupRideActivity.getIntent(this))
+        }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar,
