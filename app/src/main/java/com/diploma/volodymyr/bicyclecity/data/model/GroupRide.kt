@@ -9,4 +9,6 @@ data class GroupRide(var title: String = "",
                      var date: Date? = null,
                      var start: GeoPoint? = null,
                      var finish: GeoPoint? = null,
+                     var distance: Double = 0.0,
+                     var approximateTime: Long = 0,
                      var users: ArrayList<User>? = null)

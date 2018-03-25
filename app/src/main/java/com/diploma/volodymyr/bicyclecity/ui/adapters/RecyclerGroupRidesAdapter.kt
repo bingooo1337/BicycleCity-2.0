@@ -9,6 +9,7 @@ import com.diploma.volodymyr.bicyclecity.data.model.GroupRide
 import com.diploma.volodymyr.bicyclecity.inflate
 import kotlinx.android.synthetic.main.recycler_group_rides_item.view.*
 import kotlin.collections.ArrayList
+import kotlin.math.roundToInt
 
 class RecyclerGroupRidesAdapter(rides: List<GroupRide> = ArrayList(), val listener: (GroupRide) -> Unit)
     : RecyclerView.Adapter<RecyclerGroupRidesAdapter.GroupRideViewHolder>() {
@@ -34,6 +35,8 @@ class RecyclerGroupRidesAdapter(rides: List<GroupRide> = ArrayList(), val listen
                     map_image.setImageDrawable(context.getDrawable(R.drawable.map))
                     title.text = item.title
                     date_time.text = GROUP_RIDE_DATEFORMAT.format(item.date)
+                    distance.text = context.getString(R.string.km_placeholder, (item.distance / 100).roundToInt() / 10.0)
+                    time.text = context.getString(R.string.mins_placeholder, item.approximateTime)
                     setOnClickListener { listener(item) }
                 }
     }
