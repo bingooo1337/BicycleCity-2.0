@@ -1,22 +1,26 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
+import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.data.repository.UserRepositoryImpl
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignInPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignInView
-import com.google.firebase.auth.FirebaseAuth
+import javax.inject.Inject
 
 @InjectViewState
 class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
-    private lateinit var firebaseAuth: FirebaseAuth
+
+    @Inject
+    lateinit var userRepository: UserRepositoryImpl
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        firebaseAuth = FirebaseAuth.getInstance()
+        App.instance.getDataComponent().inject(this)
     }
 
     override fun checkCurrentUser() {
-        firebaseAuth.currentUser?.let {
+        userRepository.getCurrentUser()?.let {
             viewState.openApp()
         }
     }
@@ -24,7 +28,7 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
     override fun signIn(login: String, password: String) {
         if (validate(login, password)) {
             viewState.showLoading()
-            firebaseAuth.signInWithEmailAndPassword(login, password)
+            userRepository.loginUser(login, password)
                     .addOnSuccessListener {
                         viewState.hideLoading()
                         viewState.openApp()

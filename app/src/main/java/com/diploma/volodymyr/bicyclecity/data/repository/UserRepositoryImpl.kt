@@ -11,6 +11,8 @@ class UserRepositoryImpl(db: FirebaseFirestore, private val auth: FirebaseAuth)
     override fun createUser(login: String, password: String) {
     }
 
-    override fun loginUser(login: String, password: String) {
-    }
+    override fun loginUser(login: String, password: String) =
+            auth.signInWithEmailAndPassword(login, password)
+
+    override fun getCurrentUser() = auth.currentUser
 }
