@@ -9,6 +9,7 @@ import dagger.Provides
 
 @Module(includes = [AppModule::class])
 class GoogleMapsDirectionsModule {
+
     @Provides
     fun googleDirections(application: App): DirectionOriginRequest =
             GoogleDirection.withServerKey(application.getString(R.string.geo_api_server_key))

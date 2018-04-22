@@ -16,10 +16,12 @@ import javax.inject.Singleton
 class GoogleMapsApiModule {
 
     @Provides
+    @Singleton
     fun googleMapsApi(retrofit: Retrofit): GoogleMapsApi =
             retrofit.create(GoogleMapsApi::class.java)
 
     @Provides
+    @Singleton
     fun provideRetrofit(
             gsonConverterFactory: GsonConverterFactory,
             okHttpClient: OkHttpClient,
@@ -34,14 +36,17 @@ class GoogleMapsApiModule {
     }
 
     @Provides
+    @Singleton
     fun gsonConverterFactory(gson: Gson): GsonConverterFactory = GsonConverterFactory.create(gson)
 
     @Provides
+    @Singleton
     fun gson(): Gson = GsonBuilder()
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .create()
 
     @Provides
+    @Singleton
     fun rxJava2CallAdapterFactory(): RxJava2CallAdapterFactory =
             RxJava2CallAdapterFactory.create()
 }

@@ -5,11 +5,13 @@ import dagger.Module
 import okhttp3.logging.HttpLoggingInterceptor
 import dagger.Provides
 import okhttp3.OkHttpClient
+import javax.inject.Singleton
 
 @Module
 class OkHttpClientModule {
 
     @Provides
+    @Singleton
     fun okHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
             OkHttpClient()
                     .newBuilder()
@@ -17,6 +19,7 @@ class OkHttpClientModule {
                     .build()
 
     @Provides
+    @Singleton
     fun httpLoggingInterceptor(): HttpLoggingInterceptor =
             HttpLoggingInterceptor()
                     .setLevel(if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BASIC
