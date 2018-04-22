@@ -15,7 +15,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDES_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
-import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
 import kotlinx.android.synthetic.main.activity_menu.*
@@ -24,7 +23,7 @@ import kotlinx.android.synthetic.main.app_bar_menu.*
 class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
-        val TAG = SignUpActivity::class.java.simpleName
+        val TAG = MenuActivity::class.java.simpleName
         fun getIntent(context: Context) = Intent(context, MenuActivity::class.java)
     }
 
