@@ -1,4 +1,4 @@
-package com.diploma.volodymyr.bicyclecity.data.model
+package com.diploma.volodymyr.bicyclecity.data.objects
 
 import com.google.firebase.firestore.GeoPoint
 import java.util.*

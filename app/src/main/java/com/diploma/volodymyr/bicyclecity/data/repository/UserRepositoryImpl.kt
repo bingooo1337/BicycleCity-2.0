@@ -2,7 +2,7 @@ package com.diploma.volodymyr.bicyclecity.data.repository
 
 import com.diploma.volodymyr.bicyclecity.Const
 import com.diploma.volodymyr.bicyclecity.data.BaseRepository
-import com.diploma.volodymyr.bicyclecity.data.model.User
+import com.diploma.volodymyr.bicyclecity.data.objects.User
 import com.diploma.volodymyr.bicyclecity.model.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser

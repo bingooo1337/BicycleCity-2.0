@@ -1,15 +1,8 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl
 
-import android.util.Log
-import com.akexorcist.googledirection.DirectionCallback
-import com.akexorcist.googledirection.constant.TransportMode
-import com.akexorcist.googledirection.model.Direction
 import com.akexorcist.googledirection.request.DirectionOriginRequest
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.App
-import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDES
-import com.diploma.volodymyr.bicyclecity.data.model.GroupRide
-import com.diploma.volodymyr.bicyclecity.getGeoPoint
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.ICreateGroupRidePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideView
@@ -18,7 +11,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import javax.inject.Inject
-import kotlin.math.roundToLong
 
 @InjectViewState
 class CreateGroupRidePresenter : BasePresenter<CreateGroupRideView>(), ICreateGroupRidePresenter {

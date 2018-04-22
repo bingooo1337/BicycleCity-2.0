@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 
 import com.diploma.volodymyr.bicyclecity.R
-import com.diploma.volodymyr.bicyclecity.data.model.GroupRide
+import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRidesListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.GroupRidesListView
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
