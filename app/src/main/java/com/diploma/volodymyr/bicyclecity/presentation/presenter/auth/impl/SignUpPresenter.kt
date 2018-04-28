@@ -1,8 +1,7 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
-import com.diploma.volodymyr.bicyclecity.App
-import com.diploma.volodymyr.bicyclecity.data.repository.UserRepositoryImpl
+import com.diploma.volodymyr.bicyclecity.model.UserRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignUpPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignUpView
@@ -12,11 +11,11 @@ import javax.inject.Inject
 class SignUpPresenter : BasePresenter<SignUpView>(), ISignUpPresenter {
 
     @Inject
-    lateinit var userRepository: UserRepositoryImpl
+    lateinit var userRepository: UserRepository
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        App.instance.getDataComponent().inject(this)
+        dataComponent.inject(this)
     }
 
     override fun signUp(firstName: String, lastName: String, email: String, number: String, password: String) {

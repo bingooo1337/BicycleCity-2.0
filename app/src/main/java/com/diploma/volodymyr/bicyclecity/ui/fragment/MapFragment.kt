@@ -4,18 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.data.objects.Marker
+import com.diploma.volodymyr.bicyclecity.getLatLng
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.map.impl.MapPresenter
+import com.diploma.volodymyr.bicyclecity.presentation.view.map.MapView
+import com.diploma.volodymyr.bicyclecity.setInvisible
+import com.diploma.volodymyr.bicyclecity.setVisible
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_map.*
 
-class MapFragment : BaseFragment(), OnMapReadyCallback {
+class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
 
     companion object {
         private const val MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey"
     }
 
+    @InjectPresenter
+    lateinit var presenter: MapPresenter
     private lateinit var googleMap: GoogleMap
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +36,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
         map.onCreate(savedInstanceState?.getBundle(MAP_VIEW_BUNDLE_KEY))
         map.getMapAsync(this)
+        presenter.loadMarkers()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -69,5 +80,22 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
+    }
+
+    override fun showLoading() {
+        progress_bar.setVisible()
+    }
+
+    override fun hideLoading() {
+        progress_bar.setInvisible()
+    }
+
+    override fun showMarkers(markers: List<Marker>) {
+        markers.forEach {
+            googleMap.addMarker(MarkerOptions().apply {
+                position(it.geo.getLatLng())
+                title(it.name)
+            })
+        }
     }
 }

@@ -8,4 +8,8 @@ abstract class BaseFragment : MvpAppCompatFragment(), BaseView {
     override fun showToastMessage(message: String) {
         activity?.showShortToast(message)
     }
+
+    override fun showToastMessage(stringId: Int) {
+        activity?.showShortToast(stringId)
+    }
 }
