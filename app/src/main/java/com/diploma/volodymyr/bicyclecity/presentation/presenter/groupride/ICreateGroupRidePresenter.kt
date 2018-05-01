@@ -1,17 +1,9 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride
 
-import com.google.android.gms.location.places.Place
-import com.google.android.gms.maps.model.LatLng
-import java.util.*
-
 interface ICreateGroupRidePresenter {
-    fun startPointClicked()
-    fun startPointChoosed(place: Place)
-    fun finishPointClicked()
-    fun finishPointChoosed(place: Place)
-    fun nothingChoosed()
-    fun chooseDateAndTime()
-    fun dateChoosed(calendar: Calendar)
-    fun timeChoosed(calendar: Calendar)
-    fun createGroupRide(title: String, desc: String)
+    fun onDateCLicked()
+    fun onTimeCLicked()
+    fun onSelectClicked(day: Int, month: Int, year: Int)
+    fun onSelectClicked(hour: Int, minute: Int)
+    fun onContinueClicked(title: String, desc: String, avgSpeedItemPosition: Int)
 }

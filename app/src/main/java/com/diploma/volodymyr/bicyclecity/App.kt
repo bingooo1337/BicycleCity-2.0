@@ -1,10 +1,7 @@
 package com.diploma.volodymyr.bicyclecity
 
 import android.app.Application
-import com.diploma.volodymyr.bicyclecity.dagger.component.DaggerDataComponent
-import com.diploma.volodymyr.bicyclecity.dagger.component.DaggerGoogleMapsComponent
-import com.diploma.volodymyr.bicyclecity.dagger.component.DataComponent
-import com.diploma.volodymyr.bicyclecity.dagger.component.GoogleMapsComponent
+import com.diploma.volodymyr.bicyclecity.dagger.component.*
 import com.diploma.volodymyr.bicyclecity.dagger.module.GoogleMapsDirectionsModule
 import com.diploma.volodymyr.bicyclecity.dagger.module.RepositoryModule
 
@@ -19,6 +16,7 @@ class App : Application() {
 
     private lateinit var googleMapsComponent: GoogleMapsComponent
     private lateinit var dataComponent: DataComponent
+    private lateinit var createGroupRideComponent: CreateGroupRideComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -28,8 +26,13 @@ class App : Application() {
         dataComponent = DaggerDataComponent.builder()
                 .repositoryModule(RepositoryModule())
                 .build()
+        createGroupRideComponent = DaggerCreateGroupRideComponent.builder()
+                .repositoryModule(RepositoryModule())
+                .googleMapsDirectionsModule(GoogleMapsDirectionsModule())
+                .build()
     }
 
     fun getGoogleMapsComponent() = googleMapsComponent
     fun getDataComponent() = dataComponent
+    fun getCreateGroupRideComponent() = createGroupRideComponent
 }

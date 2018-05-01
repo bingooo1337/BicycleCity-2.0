@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.groupride.CreateGroupRideRouteActivity">
+
+    <ImageView
+        android:id="@+id/point1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_start_point"
+        app:layout_constraintBottom_toBottomOf="@+id/choose_start_layout"
+        app:layout_constraintEnd_toStartOf="@id/choose_start_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/choose_start_layout" />
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/place_autocomplete_prediction_primary_text"
+        app:layout_constraintBottom_toTopOf="@id/point2"
+        app:layout_constraintEnd_toEndOf="@id/point1"
+        app:layout_constraintStart_toStartOf="@id/point1"
+        app:layout_constraintTop_toBottomOf="@id/point1" />
+
+    <ImageView
+        android:id="@+id/point2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_finish_point"
+        app:layout_constraintBottom_toBottomOf="@id/choose_finish_layout"
+        app:layout_constraintEnd_toEndOf="@+id/point1"
+        app:layout_constraintStart_toStartOf="@+id/point1"
+        app:layout_constraintTop_toTopOf="@id/choose_finish_layout" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/choose_start_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/tap_to_pick_start_point"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/point1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/choose_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/choose_finish_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="12dp"
+        android:hint="@string/tap_to_pick_finish_point"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/point2"
+        app:layout_constraintTop_toBottomOf="@id/choose_start_layout">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/choose_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none" />
+    </android.support.design.widget.TextInputLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choose_finish_layout" />
+
+</android.support.constraint.ConstraintLayout>
+

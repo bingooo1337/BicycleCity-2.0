@@ -1,6 +1,8 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
+import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.model.UserRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignInPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
@@ -50,11 +52,11 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
         var validated = true
 
         if (login.isEmpty()) {
-            viewState.showLoginError("Required")
+            viewState.showLoginError(App.instance.getString(R.string.required))
             validated = false
         }
         if (password.isEmpty()) {
-            viewState.showPasswordError("Required")
+            viewState.showPasswordError(App.instance.getString(R.string.required))
             validated = false
         }
 

@@ -17,6 +17,7 @@ import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
+import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -85,7 +86,7 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
         onNavigationItemSelected(nav_view.menu.findItem(R.id.nav_news))
 
         fab.setOnClickListener {
-            if (supportFragmentManager.findFragmentByTag(GROUP_RIDES_FRAGMENT) != null)
+            if (supportFragmentManager.findFragmentById(R.id.fragment_container) is GroupRidesFragment)
                 startActivity(CreateGroupRideActivity.getIntent(this))
         }
 

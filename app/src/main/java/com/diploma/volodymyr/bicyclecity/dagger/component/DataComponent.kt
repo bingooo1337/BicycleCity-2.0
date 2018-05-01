@@ -10,8 +10,9 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [RepositoryModule::class])
 interface DataComponent {
-
+    // Auth
     fun inject(presenter: SignInPresenter)
     fun inject(presenter: SignUpPresenter)
+
     fun inject(presenter: MapPresenter)
 }

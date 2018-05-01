@@ -30,7 +30,8 @@ class SignUpActivity : BaseActivity(), SignUpView {
     }
 
     override fun showLoading() {
-        progressDialog = ProgressDialog.show(this, "Loading", "Please wait...", true)
+        progressDialog = ProgressDialog.show(this, getString(R.string.loading),
+                getString(R.string.please_wait), true)
     }
 
     override fun hideLoading() {

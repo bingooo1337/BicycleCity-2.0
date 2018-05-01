@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.diploma.volodymyr.bicyclecity.Const.DEFAULT_DATE_FORMAT
+import com.diploma.volodymyr.bicyclecity.Const.DEFAULT_TIME_FORMAT
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.GeoPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun Context.showShortToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -52,6 +54,10 @@ fun View.setGone() {
     if (this.visibility != View.GONE)
         visibility = View.GONE
 }
+
+fun Date.getFormattedDateString(): String = DEFAULT_DATE_FORMAT.format(this)
+
+fun Date.getTimeString(): String = DEFAULT_TIME_FORMAT.format(this)
 
 fun <TResult> Task<TResult>.subscribe(successListener: (TResult) -> Unit,
                                       failureListener: (Exception) -> Unit) {

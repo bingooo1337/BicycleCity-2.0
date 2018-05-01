@@ -16,5 +16,8 @@ object Const {
     const val MAP_FRAGMENT = "map_fragment"
     const val SETTINGS_FRAGMENT = "settings_fragment"
 
-    val GROUP_RIDE_DATEFORMAT = SimpleDateFormat("HH:mm 'on' MMMM d", Locale.getDefault())
+    // Date Formats
+    val GROUP_RIDE_DATE_FORMAT = SimpleDateFormat("HH:mm 'on' MMMM d", Locale.getDefault())
+    val DEFAULT_DATE_FORMAT = SimpleDateFormat("dd MMMM Y", Locale.getDefault())
+    val DEFAULT_TIME_FORMAT = SimpleDateFormat("HH:mm", Locale.getDefault())
 }

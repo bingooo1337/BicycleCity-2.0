@@ -18,7 +18,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/geo_api_key" />
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".ui.activity.navigation.MenuActivity"
@@ -33,7 +33,18 @@
         <activity android:name=".ui.activity.auth.SignUpActivity" />
         <activity
             android:name=".ui.activity.groupride.CreateGroupRideActivity"
-            android:label="Create group ride" />
+            android:label="@string/title_activity_create_group_ride">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.diploma.volodymyr.bicyclecity.ui.activity.navigation.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activity.groupride.CreateGroupRideRouteActivity"
+            android:label="@string/title_activity_create_group_ride_route">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity" />
+        </activity>
     </application>
 
 </manifest>
