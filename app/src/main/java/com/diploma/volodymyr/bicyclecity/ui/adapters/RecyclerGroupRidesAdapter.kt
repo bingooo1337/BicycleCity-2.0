@@ -3,10 +3,10 @@ package com.diploma.volodymyr.bicyclecity.ui.adapters
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDE_DATE_FORMAT
+import com.diploma.volodymyr.bicyclecity.common.Const.GROUP_RIDE_DATE_FORMAT
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
-import com.diploma.volodymyr.bicyclecity.inflate
+import com.diploma.volodymyr.bicyclecity.common.inflate
 import kotlinx.android.synthetic.main.recycler_group_rides_item.view.*
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt

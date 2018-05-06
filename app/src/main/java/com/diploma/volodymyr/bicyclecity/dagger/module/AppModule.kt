@@ -1,6 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.dagger.module
 
-import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.common.App
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

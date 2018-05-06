@@ -1,6 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.data.repository
 
-import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDES
+import com.diploma.volodymyr.bicyclecity.common.Const.GROUP_RIDES
 import com.diploma.volodymyr.bicyclecity.data.BaseRepository
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.model.GroupRideRepository

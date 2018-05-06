@@ -1,7 +1,7 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.base
 
 import com.arellomobile.mvp.MvpPresenter
-import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.common.App
 import com.diploma.volodymyr.bicyclecity.dagger.component.DataComponent
 import com.diploma.volodymyr.bicyclecity.dagger.component.GoogleMapsComponent
 import com.diploma.volodymyr.bicyclecity.presentation.view.BaseView

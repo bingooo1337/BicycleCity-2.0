@@ -1,11 +1,11 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl
 
 import com.arellomobile.mvp.InjectViewState
-import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.common.App
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
-import com.diploma.volodymyr.bicyclecity.getFormattedDateString
-import com.diploma.volodymyr.bicyclecity.getTimeString
+import com.diploma.volodymyr.bicyclecity.common.getFormattedDateString
+import com.diploma.volodymyr.bicyclecity.common.getTimeString
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.ICreateGroupRidePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideView

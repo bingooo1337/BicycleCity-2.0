@@ -2,7 +2,7 @@ package com.diploma.volodymyr.bicyclecity.dagger.module
 
 import com.akexorcist.googledirection.GoogleDirection
 import com.akexorcist.googledirection.request.DirectionOriginRequest
-import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.common.App
 import com.diploma.volodymyr.bicyclecity.R
 import dagger.Module
 import dagger.Provides

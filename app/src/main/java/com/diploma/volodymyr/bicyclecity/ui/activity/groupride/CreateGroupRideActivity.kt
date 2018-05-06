@@ -5,23 +5,21 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_create_group_ride.*
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException
-import com.google.android.gms.location.places.ui.PlacePicker
 import android.os.Build
-import android.support.v4.app.NavUtils
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.*
+import com.diploma.volodymyr.bicyclecity.common.getFormattedDateString
+import com.diploma.volodymyr.bicyclecity.common.getTimeString
+import com.diploma.volodymyr.bicyclecity.common.setGone
+import com.diploma.volodymyr.bicyclecity.common.setVisible
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.CreateGroupRidePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideView
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.Marker
 import java.util.*
 
 class CreateGroupRideActivity : BaseActivity(), CreateGroupRideView {

@@ -1,6 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.data.repository
 
-import com.diploma.volodymyr.bicyclecity.Const
+import com.diploma.volodymyr.bicyclecity.common.Const
 import com.diploma.volodymyr.bicyclecity.data.BaseRepository
 import com.diploma.volodymyr.bicyclecity.data.objects.User
 import com.diploma.volodymyr.bicyclecity.model.UserRepository

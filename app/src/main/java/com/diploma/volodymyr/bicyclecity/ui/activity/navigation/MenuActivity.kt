@@ -12,7 +12,6 @@ import android.view.MenuItem
 import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.MenuPresenter
 import com.arellomobile.mvp.presenter.InjectPresenter
-import com.diploma.volodymyr.bicyclecity.Const.GROUP_RIDES_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity

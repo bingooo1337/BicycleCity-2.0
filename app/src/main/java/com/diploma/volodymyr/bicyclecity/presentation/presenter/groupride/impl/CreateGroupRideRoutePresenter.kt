@@ -6,10 +6,10 @@ import com.akexorcist.googledirection.constant.TransportMode
 import com.akexorcist.googledirection.model.Direction
 import com.akexorcist.googledirection.request.DirectionOriginRequest
 import com.arellomobile.mvp.InjectViewState
-import com.diploma.volodymyr.bicyclecity.App
+import com.diploma.volodymyr.bicyclecity.common.App
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
-import com.diploma.volodymyr.bicyclecity.getGeoPoint
+import com.diploma.volodymyr.bicyclecity.common.getGeoPoint
 import com.diploma.volodymyr.bicyclecity.model.GroupRideRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.ICreateGroupRideRoutePresenter

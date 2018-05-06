@@ -1,16 +1,15 @@
-package com.diploma.volodymyr.bicyclecity
+package com.diploma.volodymyr.bicyclecity.common
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.diploma.volodymyr.bicyclecity.Const.DEFAULT_DATE_FORMAT
-import com.diploma.volodymyr.bicyclecity.Const.DEFAULT_TIME_FORMAT
+import com.diploma.volodymyr.bicyclecity.common.Const.DEFAULT_DATE_FORMAT
+import com.diploma.volodymyr.bicyclecity.common.Const.DEFAULT_TIME_FORMAT
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.GeoPoint
-import java.text.SimpleDateFormat
 import java.util.*
 
 fun Context.showShortToast(message: String) {

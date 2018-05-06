@@ -1,4 +1,4 @@
-package com.diploma.volodymyr.bicyclecity
+package com.diploma.volodymyr.bicyclecity.common
 
 import java.text.SimpleDateFormat
 import java.util.*

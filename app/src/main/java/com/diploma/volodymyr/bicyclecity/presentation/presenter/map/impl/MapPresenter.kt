@@ -8,7 +8,7 @@ import com.diploma.volodymyr.bicyclecity.model.MarkerRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.map.IMapPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.map.MapView
-import com.diploma.volodymyr.bicyclecity.subscribe
+import com.diploma.volodymyr.bicyclecity.common.subscribe
 import javax.inject.Inject
 
 @InjectViewState

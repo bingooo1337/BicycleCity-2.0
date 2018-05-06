@@ -1,4 +1,4 @@
-package com.diploma.volodymyr.bicyclecity
+package com.diploma.volodymyr.bicyclecity.common
 
 import android.app.Application
 import com.diploma.volodymyr.bicyclecity.dagger.component.*

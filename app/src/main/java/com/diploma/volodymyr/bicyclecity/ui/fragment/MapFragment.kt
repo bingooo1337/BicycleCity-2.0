@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.data.objects.Marker
-import com.diploma.volodymyr.bicyclecity.getLatLng
+import com.diploma.volodymyr.bicyclecity.common.getLatLng
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.map.impl.MapPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.map.MapView
-import com.diploma.volodymyr.bicyclecity.setInvisible
-import com.diploma.volodymyr.bicyclecity.setVisible
+import com.diploma.volodymyr.bicyclecity.common.setInvisible
+import com.diploma.volodymyr.bicyclecity.common.setVisible
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
