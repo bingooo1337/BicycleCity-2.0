@@ -16,11 +16,10 @@ import com.google.firebase.auth.FirebaseAuth
 @InjectViewState
 class MenuPresenter : BasePresenter<MenuView>(), IMenuPresenter {
 
-    private lateinit var firebaseAuth: FirebaseAuth
+    private var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        firebaseAuth = FirebaseAuth.getInstance()
         firebaseAuth.currentUser?.let { viewState.showUserNameEmail(it.displayName!!, it.email!!) }
     }
 

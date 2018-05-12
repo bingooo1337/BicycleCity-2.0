@@ -20,8 +20,6 @@ import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideAc
 import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
-import kotlinx.android.synthetic.main.design_navigation_item_header.view.*
-import kotlinx.android.synthetic.main.nav_header_menu.*
 
 class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSelectedListener {
 
@@ -56,8 +54,8 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
 
     override fun showUserNameEmail(name: String, email: String) {
         nav_view.getHeaderView(0).let {
-            findViewById<TextView>(R.id.user_name_tv).text = name
-            findViewById<TextView>(R.id.user_email_tv).text = email
+            it.findViewById<TextView>(R.id.user_name_tv).text = name
+            it.findViewById<TextView>(R.id.user_email_tv).text = email
         }
     }
 
