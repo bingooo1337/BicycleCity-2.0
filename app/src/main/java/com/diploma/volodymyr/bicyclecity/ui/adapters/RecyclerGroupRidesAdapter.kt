@@ -3,8 +3,10 @@ package com.diploma.volodymyr.bicyclecity.ui.adapters
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.diploma.volodymyr.bicyclecity.common.Const.GROUP_RIDE_DATE_FORMAT
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.common.getStaticMapPath
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.common.inflate
 import kotlinx.android.synthetic.main.recycler_group_rides_item.view.*
@@ -32,11 +34,11 @@ class RecyclerGroupRidesAdapter(rides: List<GroupRide> = ArrayList(), val listen
 
         fun bind(item: GroupRide, listener: (GroupRide) -> Unit) =
                 with(itemView) {
-                    map_image.setImageDrawable(context.getDrawable(R.drawable.map))
                     title.text = item.title
                     date_time.text = GROUP_RIDE_DATE_FORMAT.format(item.date)
                     distance.text = context.getString(R.string.km_placeholder, (item.distance / 100).roundToInt() / 10.0)
                     time.text = context.getString(R.string.mins_placeholder, item.approximateTime)
+                    Glide.with(itemView.context).load(item.getStaticMapPath()).into(map_image)
                     setOnClickListener { listener(item) }
                 }
     }

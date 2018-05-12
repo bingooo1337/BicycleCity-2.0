@@ -5,8 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.Const.DEFAULT_DATE_FORMAT
 import com.diploma.volodymyr.bicyclecity.common.Const.DEFAULT_TIME_FORMAT
+import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.API_KEY
+import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.GOOGLE_STATIC_MAP
+import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.MARKER_FINISH
+import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.MARKER_START
+import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.POLYLINE_PATH_SETTINGS
+import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.GeoPoint
@@ -58,8 +65,15 @@ fun Date.getFormattedDateString(): String = DEFAULT_DATE_FORMAT.format(this)
 
 fun Date.getTimeString(): String = DEFAULT_TIME_FORMAT.format(this)
 
-fun <TResult> Task<TResult>.subscribe(successListener: (TResult) -> Unit,
+fun <TResult> Task<TResult>.subscribe(successListener: (TResult?) -> Unit,
                                       failureListener: (Exception) -> Unit) {
     addOnSuccessListener { successListener.invoke(result) }
     addOnFailureListener { failureListener.invoke(it) }
 }
+
+fun GroupRide.getStaticMapPath() =
+        GOOGLE_STATIC_MAP +
+                MARKER_START + "${start?.latitude},${start?.longitude}&" +
+                MARKER_FINISH + "${finish?.latitude},${finish?.longitude}&" +
+                POLYLINE_PATH_SETTINGS + "$encodedRoute&" +
+                API_KEY + App.instance.getString(R.string.google_maps_key)

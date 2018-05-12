@@ -43,10 +43,8 @@ class CreateGroupRidePresenter : BasePresenter<CreateGroupRideView>(), ICreateGr
         App.instance.getString(R.string.required).let {
             val titleIsEmpty = title.isBlank()
             val descIsEmpty = desc.isBlank()
-            if (titleIsEmpty || descIsEmpty) {
-                viewState.setErrorHints(if (titleIsEmpty) it else "", if (descIsEmpty) it else "")
-                return
-            }
+            viewState.setErrorHints(if (titleIsEmpty) it else "", if (descIsEmpty) it else "")
+            if (titleIsEmpty || descIsEmpty) return
         }
 
         val avgSpeed = App.instance.resources

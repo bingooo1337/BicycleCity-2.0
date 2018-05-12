@@ -10,6 +10,8 @@ import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.common.setInvisible
+import com.diploma.volodymyr.bicyclecity.common.setVisible
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.CreateGroupRideRoutePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideRouteView
@@ -42,6 +44,7 @@ class CreateGroupRideRouteActivity : BaseActivity(), CreateGroupRideRouteView, O
     private lateinit var map: GoogleMap
     private var markerStart: Marker? = null
     private var markerFinish: Marker? = null
+    private var polyline: Polyline? = null
     private lateinit var groupRide: GroupRide
 
     @ProvidePresenter
@@ -77,6 +80,14 @@ class CreateGroupRideRouteActivity : BaseActivity(), CreateGroupRideRouteView, O
         map = googleMap
     }
 
+    override fun showLoading() {
+        choose_route_progress_bar.setVisible()
+    }
+
+    override fun hideLoading() {
+        choose_route_progress_bar.setInvisible()
+    }
+
     override fun addMarker(coordinates: LatLng, pointName: String, isStart: Boolean) {
         if (isStart) {
             markerStart?.remove()
@@ -107,6 +118,11 @@ class CreateGroupRideRouteActivity : BaseActivity(), CreateGroupRideRouteView, O
         }
     }
 
+    override fun drawRoute(polyline: PolylineOptions) {
+        this.polyline?.remove()
+        this.polyline = map.addPolyline(polyline)
+    }
+
     override fun activateChoosingPoints() {
         choose_start.isEnabled = true
         choose_finish.isEnabled = true
@@ -128,6 +144,11 @@ class CreateGroupRideRouteActivity : BaseActivity(), CreateGroupRideRouteView, O
     override fun closeScreenWithResult() {
         setResult(RESULT_OK)
         finish()
+    }
+
+    override fun setErrorHints(startError: String, finishError: String) {
+        choose_start_layout.error = startError
+        choose_finish_layout.error = finishError
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

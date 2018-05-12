@@ -10,4 +10,5 @@ interface MenuView : BaseView {
     fun openSignIn()
     fun openFragment(fragment: Fragment, tag: String)
     fun setTitle(title: String)
+    fun showUserNameEmail(name: String, email: String)
 }

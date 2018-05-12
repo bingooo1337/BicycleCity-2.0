@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:paddingTop="8dp"
             android:clipToPadding="false"
-            android:paddingBottom="8dp"
+            android:paddingBottom="100dp"
             android:layout_height="match_parent"
             tools:listitem="@layout/recycler_group_rides_item" />
     </android.support.v4.widget.SwipeRefreshLayout>

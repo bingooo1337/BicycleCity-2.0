@@ -20,4 +20,19 @@ object Const {
     val GROUP_RIDE_DATE_FORMAT = SimpleDateFormat("HH:mm 'on' MMMM d", Locale.getDefault())
     val DEFAULT_DATE_FORMAT = SimpleDateFormat("dd MMMM Y", Locale.getDefault())
     val DEFAULT_TIME_FORMAT = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+    object NetworkCalls {
+        private const val STATIC_MAPS_API_URL = "https://maps.googleapis.com/maps/api/staticmap?"
+        private const val MAP_SIZE = "size=1280x720"
+        private const val MARKERS = "markers="
+
+        const val GOOGLE_STATIC_MAP = "$STATIC_MAPS_API_URL$MAP_SIZE&"
+        const val MARKER_START = MARKERS + "color:green|label:S|"
+        const val MARKER_FINISH = MARKERS + "color:red|label:F|"
+        const val POLYLINE_PATH_SETTINGS = "path=color:0x000080|enc:"
+        const val API_KEY = "key="
+    }
+
+    // Map
+    const val POLYLINE_WIDTH = 5
 }

@@ -49,6 +49,7 @@
     </string-array>
     <string name="title_activity_maps">Map</string>
     <string name="failed">Failed</string>
+    <string name="creating_route_failed">Creating route failed</string>
     <string name="loading">Loading</string>
     <string name="please_wait">Please wait…</string>
     <string name="required">Required</string>

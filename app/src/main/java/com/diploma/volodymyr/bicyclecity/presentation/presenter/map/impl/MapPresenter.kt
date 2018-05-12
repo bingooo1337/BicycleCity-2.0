@@ -31,7 +31,7 @@ class MapPresenter : BasePresenter<MapView>(), IMapPresenter {
         repository.getAllMarkers()
                 .subscribe({
                     viewState.hideLoading()
-                    viewState.showMarkers(it.toObjects(Marker::class.java))
+                    it?.let { viewState.showMarkers(it.toObjects(Marker::class.java)) }
                 }, {
                     viewState.hideLoading()
                     viewState.showToastMessage(R.string.loading_failed)
