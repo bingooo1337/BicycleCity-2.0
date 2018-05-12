@@ -21,6 +21,7 @@ class MenuPresenter : BasePresenter<MenuView>(), IMenuPresenter {
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth.currentUser?.let { viewState.showUserNameEmail(it.displayName!!, it.email!!) }
     }
 
     override fun menuItemClicked(item: MenuItem) {

@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.MenuPresenter
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -19,11 +20,12 @@ import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideAc
 import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
+import kotlinx.android.synthetic.main.design_navigation_item_header.view.*
+import kotlinx.android.synthetic.main.nav_header_menu.*
 
 class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
-        val TAG = MenuActivity::class.java.simpleName
         fun getIntent(context: Context) = Intent(context, MenuActivity::class.java)
     }
 
@@ -50,6 +52,13 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
 
     override fun setTitle(title: String) {
         this.title = title
+    }
+
+    override fun showUserNameEmail(name: String, email: String) {
+        nav_view.getHeaderView(0).let {
+            findViewById<TextView>(R.id.user_name_tv).text = name
+            findViewById<TextView>(R.id.user_email_tv).text = email
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
