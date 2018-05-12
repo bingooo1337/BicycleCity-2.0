@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,16:11" />
+            app:layout_constraintDimensionRatio="h,16:12" />
 
         <TextView
             android:id="@+id/title"
