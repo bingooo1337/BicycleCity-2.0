@@ -37,7 +37,7 @@ class MenuPresenter : BasePresenter<MenuView>(), IMenuPresenter {
                 }
                 R.id.nav_group -> {
                     fragmentTag = GROUP_RIDES_FRAGMENT
-                    GroupRidesFragment()
+                    GroupRidesListFragment()
                 }
                 R.id.nav_competition -> {
                     fragmentTag = COMPETITIONS_FRAGMENT

@@ -10,7 +10,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 @Parcelize
-data class GroupRide(var title: String = "",
+data class GroupRide(var id: String = "",
+                     var title: String = "",
                      var description: String = "",
                      var date: Date? = null,
                      var start: @RawValue GeoPoint? = null,

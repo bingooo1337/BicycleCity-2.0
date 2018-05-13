@@ -7,4 +7,5 @@ interface GroupRidesListView: BaseView {
     fun showLoading()
     fun hideLoading()
     fun showData(rides: List<GroupRide>)
+    fun openGroupRide(groupRideTitle: String, groupRideId: String)
 }

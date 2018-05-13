@@ -51,7 +51,8 @@ class CreateGroupRidePresenter : BasePresenter<CreateGroupRideView>(), ICreateGr
                 .getStringArray(R.array.avg_speed)[avgSpeedItemPosition]
                 .substring(0, 2)
                 .toInt()
-        val groupRide = GroupRide(title, desc, calendar.time, avgSpeed = avgSpeed)
+        val groupRide = GroupRide(title = title, description = desc,
+                date = calendar.time, avgSpeed = avgSpeed)
         viewState.goToNextScreen(groupRide)
     }
 }

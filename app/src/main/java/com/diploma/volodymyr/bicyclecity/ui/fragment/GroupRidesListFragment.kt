@@ -12,10 +12,11 @@ import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRidesListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.GroupRidesListView
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
+import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.GroupRideDetailsActivity
 import com.diploma.volodymyr.bicyclecity.ui.adapters.RecyclerGroupRidesAdapter
 import kotlinx.android.synthetic.main.fragment_group_rides.*
 
-class GroupRidesFragment : BaseFragment(), GroupRidesListView {
+class GroupRidesListFragment : BaseFragment(), GroupRidesListView {
 
     @InjectPresenter
     lateinit var presenter: GroupRidesListPresenter
@@ -49,9 +50,13 @@ class GroupRidesFragment : BaseFragment(), GroupRidesListView {
         swipe_layout.isRefreshing = false
     }
 
+    override fun openGroupRide(groupRideTitle: String, groupRideId: String) {
+        startActivity(GroupRideDetailsActivity.getIntent(context!!, groupRideTitle, groupRideId))
+    }
+
     private fun initView() {
         swipe_layout.setOnRefreshListener { presenter.loadData() }
-        adapter = RecyclerGroupRidesAdapter { showToastMessage("Group Ride") }
+        adapter = RecyclerGroupRidesAdapter { presenter.onGroupRideClicked(it) }
         group_rides_recycler.adapter = adapter
         group_rides_recycler.layoutManager = LinearLayoutManager(context)
     }
