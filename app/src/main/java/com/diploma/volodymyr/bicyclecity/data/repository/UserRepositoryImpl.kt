@@ -19,27 +19,29 @@ class UserRepositoryImpl(db: FirebaseFirestore, private val auth: FirebaseAuth)
                     if (it.isSuccessful) {
                         val user = it.result.user
                         updateUserDisplayName(user, firstName, lastName)
-
-                        db.collection(Const.USERS).document(user.uid)
-                                .set(User(email, firstName, lastName, number))
-                                .addOnFailureListener { user.delete() }
-                                .addOnCompleteListener {
-                                    onCompleteListener.invoke(it.isSuccessful, it.exception?.localizedMessage)
+                                .addOnSuccessListener {
+                                    db.collection(Const.USERS).document(user.uid)
+                                            .set(User(email, firstName, lastName, number))
+                                            .addOnFailureListener { user.delete() }
+                                            .addOnCompleteListener {
+                                                onCompleteListener.invoke(it.isSuccessful, it.exception?.localizedMessage)
+                                            }
                                 }
+                                .addOnFailureListener { user.delete() }
+
                     } else
                         onCompleteListener.invoke(it.isSuccessful, it.exception?.localizedMessage)
                 }
-    }
-
-    private fun updateUserDisplayName(user: FirebaseUser, firstName: String, lastName: String) {
-        user.updateProfile(
-                UserProfileChangeRequest.Builder()
-                        .setDisplayName("$firstName $lastName")
-                        .build())
     }
 
     override fun loginUser(login: String, password: String) =
             auth.signInWithEmailAndPassword(login, password)
 
     override fun getCurrentUser() = auth.currentUser
+
+    private fun updateUserDisplayName(user: FirebaseUser, firstName: String, lastName: String) =
+            user.updateProfile(
+                    UserProfileChangeRequest.Builder()
+                            .setDisplayName("$firstName $lastName")
+                            .build())
 }
