@@ -10,6 +10,7 @@ import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.common.getDisplayWidth
 import com.diploma.volodymyr.bicyclecity.common.setInvisible
 import com.diploma.volodymyr.bicyclecity.common.setVisible
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
@@ -91,30 +92,33 @@ class CreateGroupRideRouteActivity : BaseActivity(), CreateGroupRideRouteView, O
     override fun addMarker(coordinates: LatLng, pointName: String, isStart: Boolean) {
         if (isStart) {
             markerStart?.remove()
-            markerStart = map.addMarker(MarkerOptions().position(coordinates)
+            markerStart = map.addMarker(MarkerOptions()
+                    .position(coordinates)
                     .title("Start")
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+
             choose_start.setText(pointName)
             choose_start_layout.hint = "Start Point"
-
         } else {
             markerFinish?.remove()
-            markerFinish = map.addMarker(MarkerOptions().position(coordinates)
+            markerFinish = map.addMarker(MarkerOptions()
+                    .position(coordinates)
                     .title("Finish")
-                    .icon(BitmapDescriptorFactory
-                            .defaultMarker(BitmapDescriptorFactory.HUE_RED)))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+            )
             choose_finish.setText(pointName)
             choose_finish_layout.hint = "Finish Point"
-
         }
         if (markerStart != null && markerFinish != null) {
-            val position = LatLng(
-                    (markerStart!!.position.latitude + markerFinish!!.position.latitude) / 2,
-                    (markerStart!!.position.longitude + markerFinish!!.position.longitude) / 2
-            )
-            map.moveCamera(CameraUpdateFactory.newCameraPosition(CameraPosition.fromLatLngZoom(position, 12F)))
+            val bounds = LatLngBounds.Builder()
+                    .include(markerStart!!.position)
+                    .include(markerFinish!!.position)
+                    .build()
+            val displayWidth = windowManager.getDisplayWidth()
+            map.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, displayWidth, displayWidth, 100))
         } else {
-            map.moveCamera(CameraUpdateFactory.newCameraPosition(CameraPosition.fromLatLngZoom(coordinates, 10F)))
+            map.animateCamera(CameraUpdateFactory
+                    .newCameraPosition(CameraPosition.fromLatLngZoom(coordinates, 10F)))
         }
     }
 

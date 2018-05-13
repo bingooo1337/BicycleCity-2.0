@@ -1,10 +1,14 @@
 package com.diploma.volodymyr.bicyclecity.common
 
 import android.content.Context
+import android.graphics.Color
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
+import com.akexorcist.googledirection.util.DirectionConverter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.Const.DEFAULT_DATE_FORMAT
 import com.diploma.volodymyr.bicyclecity.common.Const.DEFAULT_TIME_FORMAT
@@ -13,11 +17,14 @@ import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.GOOGLE_STATIC
 import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.MARKER_FINISH
 import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.MARKER_START
 import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.POLYLINE_PATH_SETTINGS
+import com.diploma.volodymyr.bicyclecity.common.Const.POLYLINE_WIDTH
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.GeoPoint
 import java.util.*
+import kotlin.collections.ArrayList
 
 fun Context.showShortToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
@@ -77,3 +84,12 @@ fun GroupRide.getStaticMapPath() =
                 MARKER_FINISH + "${finish?.latitude},${finish?.longitude}&" +
                 POLYLINE_PATH_SETTINGS + "$encodedRoute&" +
                 API_KEY + App.instance.getString(R.string.google_maps_key)
+
+fun List<LatLng>.getPolyLineOptions(): PolylineOptions = DirectionConverter
+        .createPolyline(App.instance, ArrayList(this), POLYLINE_WIDTH, Color.RED)
+
+fun WindowManager.getDisplayWidth(): Int {
+    val metrics = DisplayMetrics()
+    defaultDisplay.getMetrics(metrics)
+    return metrics.widthPixels
+}

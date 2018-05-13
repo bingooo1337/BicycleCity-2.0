@@ -1,12 +1,15 @@
 package com.diploma.volodymyr.bicyclecity.data.repository
 
 import com.diploma.volodymyr.bicyclecity.common.Const
+import com.diploma.volodymyr.bicyclecity.common.Const.USERS
 import com.diploma.volodymyr.bicyclecity.data.BaseRepository
 import com.diploma.volodymyr.bicyclecity.data.objects.User
 import com.diploma.volodymyr.bicyclecity.model.UserRepository
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UserRepositoryImpl(db: FirebaseFirestore, private val auth: FirebaseAuth)
@@ -38,6 +41,9 @@ class UserRepositoryImpl(db: FirebaseFirestore, private val auth: FirebaseAuth)
             auth.signInWithEmailAndPassword(login, password)
 
     override fun getCurrentUser() = auth.currentUser
+
+    override fun getUserById(id: String): Task<DocumentSnapshot> =
+            db.collection(USERS).document(id).get()
 
     private fun updateUserDisplayName(user: FirebaseUser, firstName: String, lastName: String) =
             user.updateProfile(

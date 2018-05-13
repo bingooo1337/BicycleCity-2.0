@@ -32,6 +32,7 @@ class GroupRidesListPresenter : BasePresenter<GroupRidesListView>(), IGroupRides
                         viewState.showToastMessage(R.string.loading_failed)
                         Log.e(this::class.java.simpleName, ex.localizedMessage)
                         ex.printStackTrace()
+                        return@addSnapshotListener
                     }
 
                     snapshot?.let {

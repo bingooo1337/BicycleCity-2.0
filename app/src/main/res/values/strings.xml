@@ -53,4 +53,11 @@
     <string name="loading">Loading</string>
     <string name="please_wait">Please wait…</string>
     <string name="required">Required</string>
+    <string name="distance">Distance</string>
+    <string name="approximate_time">Approximate time</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="riders">Riders</string>
+    <string name="creator">Creator:</string>
+    <string name="user_full_name_placeholder">%s %s</string>
 </resources>

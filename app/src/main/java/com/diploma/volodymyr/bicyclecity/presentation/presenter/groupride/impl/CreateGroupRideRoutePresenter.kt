@@ -16,6 +16,7 @@ import com.diploma.volodymyr.bicyclecity.common.getGeoPoint
 import com.diploma.volodymyr.bicyclecity.common.subscribe
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.model.GroupRideRepository
+import com.diploma.volodymyr.bicyclecity.model.UserRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.ICreateGroupRideRoutePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideRouteView
@@ -41,6 +42,8 @@ class CreateGroupRideRoutePresenter(private val groupRide: GroupRide) :
     lateinit var directions: DirectionOriginRequest
     @Inject
     lateinit var repository: GroupRideRepository
+    @Inject
+    lateinit var userRepository: UserRepository
 
     private var start: LatLng? = null
     private var finish: LatLng? = null
@@ -91,10 +94,15 @@ class CreateGroupRideRoutePresenter(private val groupRide: GroupRide) :
         }
 
         route?.let {
-            viewState.hideLoading()
+            viewState.showLoading()
+
             groupRide.distance = it.distance.value.toDouble()
             groupRide.approximateTime = (groupRide.distance / 333).roundToLong()
             groupRide.encodedRoute = PolyUtil.encode(it.directionPoint)
+            userRepository.getCurrentUser()?.let {
+                groupRide.creatorId = it.uid
+                groupRide.users?.add(it.uid)
+            }
 
             repository.createGroupRide(groupRide)
                     .subscribe({ _ ->
