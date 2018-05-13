@@ -7,4 +7,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 interface BaseView : MvpView {
     @StateStrategyType(SkipStrategy::class)
     fun showToastMessage(message: String)
+
+    @StateStrategyType(SkipStrategy::class)
+    fun showToastMessage(stringId: Int)
 }

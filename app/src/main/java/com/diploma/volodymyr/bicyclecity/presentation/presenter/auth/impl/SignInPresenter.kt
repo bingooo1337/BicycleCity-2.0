@@ -1,22 +1,27 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl
 
 import com.arellomobile.mvp.InjectViewState
+import com.diploma.volodymyr.bicyclecity.common.App
+import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.model.UserRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.ISignInPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.auth.SignInView
-import com.google.firebase.auth.FirebaseAuth
+import javax.inject.Inject
 
 @InjectViewState
 class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
-    private lateinit var firebaseAuth: FirebaseAuth
+
+    @Inject
+    lateinit var userRepository: UserRepository
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        firebaseAuth = FirebaseAuth.getInstance()
+        dataComponent.inject(this)
     }
 
     override fun checkCurrentUser() {
-        firebaseAuth.currentUser?.let {
+        userRepository.getCurrentUser()?.let {
             viewState.openApp()
         }
     }
@@ -24,7 +29,7 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
     override fun signIn(login: String, password: String) {
         if (validate(login, password)) {
             viewState.showLoading()
-            firebaseAuth.signInWithEmailAndPassword(login, password)
+            userRepository.loginUser(login, password)
                     .addOnSuccessListener {
                         viewState.hideLoading()
                         viewState.openApp()
@@ -47,11 +52,11 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
         var validated = true
 
         if (login.isEmpty()) {
-            viewState.showLoginError("Required")
+            viewState.showLoginError(App.instance.getString(R.string.required))
             validated = false
         }
         if (password.isEmpty()) {
-            viewState.showPasswordError("Required")
+            viewState.showPasswordError(App.instance.getString(R.string.required))
             validated = false
         }
 

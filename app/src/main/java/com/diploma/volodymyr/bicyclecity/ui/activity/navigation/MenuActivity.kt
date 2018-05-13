@@ -4,24 +4,26 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.MenuPresenter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
-import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignUpActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
+import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
+import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesListFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
 class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
-        val TAG = SignUpActivity::class.java.simpleName
         fun getIntent(context: Context) = Intent(context, MenuActivity::class.java)
     }
 
@@ -34,23 +36,11 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
         initView()
     }
 
-    override fun openNews() {
-//        supportFragmentManager.beginTransaction()
-//                .add(R.id.fragment_container, NewsFragment(), "NEWS")
-//                .addToBackStack(null)
-//                .commit()
-    }
-
-    override fun openGroupRides() {
-    }
-
-    override fun openCompetitions() {
-    }
-
-    override fun openMap() {
-    }
-
-    override fun openSettings() {
+    override fun openFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment, tag)
+                .addToBackStack(null)
+                .commit()
     }
 
     override fun openSignIn() {
@@ -60,6 +50,13 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
 
     override fun setTitle(title: String) {
         this.title = title
+    }
+
+    override fun showUserNameEmail(name: String, email: String) {
+        nav_view.getHeaderView(0).let {
+            it.findViewById<TextView>(R.id.user_name_tv).text = name
+            it.findViewById<TextView>(R.id.user_email_tv).text = email
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -93,6 +90,11 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
         setSupportActionBar(toolbar)
         nav_view.setNavigationItemSelectedListener(this)
         onNavigationItemSelected(nav_view.menu.findItem(R.id.nav_news))
+
+        fab.setOnClickListener {
+            if (supportFragmentManager.findFragmentById(R.id.fragment_container) is GroupRidesListFragment)
+                startActivity(CreateGroupRideActivity.getIntent(this))
+        }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar,

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.activity.groupride.GroupRideDetailsActivity"
+    tools:showIn="@layout/activity_group_ride_details">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="24dp"
+            android:text="@string/description"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_calendar"
+            android:text="@string/date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_tv" />
+
+        <TextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_time"
+            android:gravity="center"
+            android:text="@string/time"
+            app:layout_constraintStart_toEndOf="@id/date_tv"
+            app:layout_constraintTop_toBottomOf="@id/description_tv" />
+
+        <TextView
+            android:id="@+id/creator_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:text="@string/creator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_tv" />
+
+        <TextView
+            android:id="@+id/creator_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creator_tv"
+            tools:text="Volodymyr Kamyshanov" />
+
+        <TextView
+            android:id="@+id/creator_email_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creator_name_tv"
+            tools:text="bingooo1337@gmail.com" />
+
+        <TextView
+            android:id="@+id/creator_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creator_name_tv"
+            tools:text="+380999511411" />
+
+        <TextView
+            android:id="@+id/riders_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_group"
+            android:gravity="center"
+            android:text="@string/riders"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/creator_email_tv" />
+
+        <TextView
+            android:id="@+id/riders_list_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:layout_constraintTop_toBottomOf="@id/riders_tv"
+            tools:text="rider 1\nrider 2\nrider 3\nrider 4\nrider 5" />
+
+        <TextView
+            android:id="@+id/distance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:text="@string/distance"
+            app:layout_constraintEnd_toStartOf="@id/approximate_time_tv"
+            app:layout_constraintTop_toBottomOf="@id/riders_list_tv" />
+
+        <TextView
+            android:id="@+id/approximate_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:text="@string/approximate_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/riders_list_tv" />
+
+        <ProgressBar
+            android:id="@+id/group_ride_details_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/riders_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_tv" />
+
+        <fragment
+            android:id="@+id/group_ride_details_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/fab_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintTop_toBottomOf="@id/distance_tv" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
