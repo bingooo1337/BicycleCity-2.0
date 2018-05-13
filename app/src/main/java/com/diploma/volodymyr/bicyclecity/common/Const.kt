@@ -17,9 +17,12 @@ object Const {
     const val SETTINGS_FRAGMENT = "settings_fragment"
 
     // Date Formats
-    val GROUP_RIDE_DATE_FORMAT = SimpleDateFormat("HH:mm 'on' MMMM d", Locale.getDefault())
-    val DEFAULT_DATE_FORMAT = SimpleDateFormat("dd MMMM Y", Locale.getDefault())
-    val DEFAULT_TIME_FORMAT = SimpleDateFormat("HH:mm", Locale.getDefault())
+    val GROUP_RIDE_DATE_FORMAT: SimpleDateFormat
+        get() = SimpleDateFormat("HH:mm 'on' MMMM d", Locale.getDefault())
+    val DEFAULT_DATE_FORMAT: SimpleDateFormat
+        get() = SimpleDateFormat("dd MMMM y", Locale.getDefault())
+    val DEFAULT_TIME_FORMAT: SimpleDateFormat
+        get() = SimpleDateFormat("HH:mm", Locale.getDefault())
 
     object NetworkCalls {
         private const val STATIC_MAPS_API_URL = "https://maps.googleapis.com/maps/api/staticmap?"

@@ -10,13 +10,12 @@ import com.diploma.volodymyr.bicyclecity.common.getStaticMapPath
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.common.inflate
 import kotlinx.android.synthetic.main.recycler_group_rides_item.view.*
-import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
-class RecyclerGroupRidesAdapter(rides: List<GroupRide> = ArrayList(), val listener: (GroupRide) -> Unit)
+class RecyclerGroupRidesAdapter(private val listener: (GroupRide) -> Unit)
     : RecyclerView.Adapter<RecyclerGroupRidesAdapter.GroupRideViewHolder>() {
 
-    var rides: List<GroupRide> = rides
+    var rides: List<GroupRide> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()

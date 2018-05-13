@@ -1,6 +1,8 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
+import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.Const.GROUP_RIDES
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
@@ -19,8 +21,21 @@ class GroupRidesListPresenter : BasePresenter<GroupRidesListView>(), IGroupRides
     }
 
     override fun loadData() {
+        viewState.showLoading()
+
         db.collection(GROUP_RIDES)
-                .get()
-                .addOnSuccessListener { viewState.showData(it.toObjects(GroupRide::class.java)) }
+                .addSnapshotListener { snapshot, ex ->
+                    viewState.hideLoading()
+
+                    if (ex != null) {
+                        viewState.showToastMessage(R.string.loading_failed)
+                        Log.e(this::class.java.simpleName, ex.localizedMessage)
+                        ex.printStackTrace()
+                    }
+
+                    snapshot?.let {
+                        viewState.showData(it.toObjects(GroupRide::class.java))
+                    }
+                }
     }
 }

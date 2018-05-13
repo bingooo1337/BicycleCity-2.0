@@ -33,7 +33,7 @@ class GroupRidesFragment : BaseFragment(), GroupRidesListView {
 
     override fun onResume() {
         super.onResume()
-        callData()
+        presenter.loadData()
     }
 
     override fun showData(rides: List<GroupRide>) {
@@ -41,15 +41,18 @@ class GroupRidesFragment : BaseFragment(), GroupRidesListView {
         swipe_layout.isRefreshing = false
     }
 
+    override fun showLoading() {
+        swipe_layout.isRefreshing = true
+    }
+
+    override fun hideLoading() {
+        swipe_layout.isRefreshing = false
+    }
+
     private fun initView() {
-        swipe_layout.setOnRefreshListener { callData() }
+        swipe_layout.setOnRefreshListener { presenter.loadData() }
         adapter = RecyclerGroupRidesAdapter { showToastMessage("Group Ride") }
         group_rides_recycler.adapter = adapter
         group_rides_recycler.layoutManager = LinearLayoutManager(context)
-    }
-
-    private fun callData() {
-        swipe_layout.isRefreshing = true
-        presenter.loadData()
     }
 }
