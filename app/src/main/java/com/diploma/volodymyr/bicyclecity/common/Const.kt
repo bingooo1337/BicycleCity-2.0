@@ -8,6 +8,8 @@ object Const {
     const val USERS = "users"
     const val GROUP_RIDES = "group_rides"
     const val MARKERS = "markers"
+    const val NEWS = "news"
+    const val EVENTS = "events"
 
     // Menu Fragments
     const val NEWS_FRAGMENT = "news_fragment"

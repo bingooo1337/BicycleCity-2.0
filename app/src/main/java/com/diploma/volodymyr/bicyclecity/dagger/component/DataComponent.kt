@@ -6,6 +6,7 @@ import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl.SignUp
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRideDetailsPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRidesListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.map.impl.MapPresenter
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.news.impl.FeedPresenter
 import dagger.Component
 import javax.inject.Singleton
 
@@ -23,4 +24,7 @@ interface DataComponent {
     fun inject(presenter: GroupRideDetailsPresenter)
 
     fun inject(presenter: MapPresenter)
+
+    // Feed
+    fun inject(presenter: FeedPresenter)
 }

@@ -1,8 +1,10 @@
 package com.diploma.volodymyr.bicyclecity.dagger.module
 
+import com.diploma.volodymyr.bicyclecity.data.repository.FeedRepositoryImpl
 import com.diploma.volodymyr.bicyclecity.data.repository.GroupRideRepositoryImpl
 import com.diploma.volodymyr.bicyclecity.data.repository.MarkerRepositoryImpl
 import com.diploma.volodymyr.bicyclecity.data.repository.UserRepositoryImpl
+import com.diploma.volodymyr.bicyclecity.model.FeedRepository
 import com.diploma.volodymyr.bicyclecity.model.GroupRideRepository
 import com.diploma.volodymyr.bicyclecity.model.MarkerRepository
 import com.diploma.volodymyr.bicyclecity.model.UserRepository
@@ -29,4 +31,9 @@ class RepositoryModule {
     @Singleton
     fun provideGroupRideRepositoryImpl(db: FirebaseFirestore): GroupRideRepository =
             GroupRideRepositoryImpl(db)
+
+    @Provides
+    @Singleton
+    fun provideFeedRepositoryImpl(db: FirebaseFirestore): FeedRepository =
+            FeedRepositoryImpl(db)
 }

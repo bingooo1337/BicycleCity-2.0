@@ -15,7 +15,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="news_amp_events"><![CDATA[News & Events]]></string>
+    <string name="feed">Feed</string>
+    <string name="news">News</string>
+    <string name="events">Events</string>
     <string name="group_rides">Group Rides</string>
     <string name="competitions">Competitions</string>
     <string name="map">Map</string>

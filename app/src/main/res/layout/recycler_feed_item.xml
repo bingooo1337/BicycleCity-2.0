@@ -17,61 +17,48 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/map_image"
+            android:id="@+id/feed_object_image"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="h,16:12" />
+            app:layout_constraintDimensionRatio="h,16:9"
+            tools:src="@drawable/toolbar_background" />
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/feed_object_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:ellipsize="end"
-            android:gravity="center"
             android:maxLines="2"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/map_image"
+            app:layout_constraintTop_toBottomOf="@id/feed_object_image"
             tools:text="Sunday morning highway training" />
 
         <TextView
-            android:id="@+id/distance"
-            android:layout_width="wrap_content"
+            android:id="@+id/feed_object_description"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title"
-            tools:text="15.2 km" />
+            app:layout_constraintTop_toBottomOf="@id/feed_object_title"
+            tools:text="Text text text text text text Text text text text text text Text text text text text text" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/feed_object_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/distance"
-            app:layout_constraintTop_toBottomOf="@id/title"
-            tools:text="120 mins" />
-
-        <TextView
-            android:id="@+id/date_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_margin="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            tools:text="10:00 on March 6" />
+            app:layout_constraintTop_toBottomOf="@id/feed_object_description"
+            tools:text="March 6, 2018" />
 
     </android.support.constraint.ConstraintLayout>
 

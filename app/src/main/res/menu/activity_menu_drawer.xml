@@ -8,7 +8,7 @@
             android:id="@+id/nav_news"
             android:checked="true"
             android:icon="@drawable/ic_news"
-            android:title="@string/news_amp_events" />
+            android:title="@string/feed" />
         <item
             android:id="@+id/nav_group"
             android:icon="@drawable/ic_group"

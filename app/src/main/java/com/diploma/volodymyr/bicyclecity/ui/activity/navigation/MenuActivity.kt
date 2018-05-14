@@ -11,7 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
-import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.MenuPresenter
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.impl.MenuPresenter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity

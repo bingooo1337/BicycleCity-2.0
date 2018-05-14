@@ -1,4 +1,4 @@
-package com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation
+package com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.impl
 
 import android.view.MenuItem
 import com.diploma.volodymyr.bicyclecity.presentation.view.navigation.MenuView
@@ -10,6 +10,7 @@ import com.diploma.volodymyr.bicyclecity.common.Const.NEWS_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.common.Const.SETTINGS_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.IMenuPresenter
 import com.diploma.volodymyr.bicyclecity.ui.fragment.*
 import com.google.firebase.auth.FirebaseAuth
 
