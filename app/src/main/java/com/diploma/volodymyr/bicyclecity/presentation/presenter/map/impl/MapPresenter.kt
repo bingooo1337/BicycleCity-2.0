@@ -29,13 +29,18 @@ class MapPresenter : BasePresenter<MapView>(), IMapPresenter {
         viewState.showLoading()
 
         repository.getAllMarkers()
-                .subscribe({
+                .addSnapshotListener { snapshot, ex ->
                     viewState.hideLoading()
-                    it?.let { viewState.showMarkers(it.toObjects(Marker::class.java)) }
-                }, {
+
+                    ex?.let {
+                        viewState.hideLoading()
+                        viewState.showToastMessage(R.string.loading_failed)
+                        Log.e(TAG, it.message)
+                        return@addSnapshotListener
+                    }
+
                     viewState.hideLoading()
-                    viewState.showToastMessage(R.string.loading_failed)
-                    Log.e(TAG, it.message)
-                })
+                    snapshot?.let { viewState.showMarkers(it.toObjects(Marker::class.java)) }
+                }
     }
 }

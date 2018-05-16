@@ -92,6 +92,7 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
     }
 
     override fun showMarkers(markers: List<Marker>) {
+        googleMap.clear()
         val bounds = LatLngBounds.Builder()
         val displayWidth = activity?.windowManager?.getDisplayWidth()
 
