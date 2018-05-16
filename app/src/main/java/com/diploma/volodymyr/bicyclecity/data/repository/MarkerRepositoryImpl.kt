@@ -7,5 +7,5 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class MarkerRepositoryImpl(db: FirebaseFirestore) : BaseRepository(db), MarkerRepository {
 
-    override fun getAllMarkers() = db.collection(MARKERS).get()
+    override fun getAllMarkers() = db.collection(MARKERS)
 }

@@ -1,7 +1,12 @@
 package com.diploma.volodymyr.bicyclecity.common
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.drawable.VectorDrawable
+import android.os.Build
+import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +24,8 @@ import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.MARKER_START
 import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.POLYLINE_PATH_SETTINGS
 import com.diploma.volodymyr.bicyclecity.common.Const.POLYLINE_WIDTH
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.gms.tasks.Task
@@ -92,4 +99,24 @@ fun WindowManager.getDisplayWidth(): Int {
     val metrics = DisplayMetrics()
     defaultDisplay.getMetrics(metrics)
     return metrics.widthPixels
+}
+
+fun getBitmapDescriptorFromVector(id: Int): BitmapDescriptor {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        val vectorDrawable = ContextCompat.getDrawable(App.instance, id) as VectorDrawable
+
+        val h = vectorDrawable.intrinsicHeight
+        val w = vectorDrawable.intrinsicWidth
+
+        vectorDrawable.setBounds(0, 0, w, h)
+
+        val bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bm)
+        vectorDrawable.draw(canvas)
+
+        return BitmapDescriptorFactory.fromBitmap(bm)
+
+    } else {
+        return BitmapDescriptorFactory.fromResource(id)
+    }
 }
