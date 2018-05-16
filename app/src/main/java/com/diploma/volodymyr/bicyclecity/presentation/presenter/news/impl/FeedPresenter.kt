@@ -2,6 +2,7 @@ package com.diploma.volodymyr.bicyclecity.presentation.presenter.news.impl
 
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
+import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.data.objects.FeedObject
 import com.diploma.volodymyr.bicyclecity.model.FeedRepository
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
@@ -12,6 +13,10 @@ import javax.inject.Inject
 @InjectViewState
 class FeedPresenter(private val isNews: Boolean) : BasePresenter<FeedView>(), IFeedPresenter {
 
+    companion object {
+        private val TAG = FeedPresenter::class.java.simpleName
+    }
+
     init {
         dataComponent.inject(this)
     }
@@ -21,27 +26,27 @@ class FeedPresenter(private val isNews: Boolean) : BasePresenter<FeedView>(), IF
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        loadFeed(isNews)
+        loadFeed()
     }
 
-    private fun loadFeed(isNews: Boolean) {
+    override fun loadFeed() {
         viewState.showLoading()
 
-        if (isNews) {
-            repository.getNews().addSnapshotListener { snapshot, ex ->
-                viewState.hideLoading()
+        val feedList = if (isNews) repository.getNews() else repository.getEvents()
 
-                if (ex != null) {
-                    ex.printStackTrace()
-                    return@addSnapshotListener
-                }
+        feedList.addSnapshotListener { snapshot, ex ->
+            viewState.hideLoading()
 
-                snapshot?.let {
-                    viewState.showFeedObjects(it.toObjects(FeedObject::class.java))
-                }
+            if (ex != null) {
+                viewState.showToastMessage(R.string.loading_failed)
+                Log.e(TAG, ex.message)
+                ex.printStackTrace()
+                return@addSnapshotListener
             }
-        } else {
 
+            snapshot?.let {
+                viewState.showFeedObjects(it.toObjects(FeedObject::class.java))
+            }
         }
     }
 }
