@@ -6,5 +6,5 @@ import com.diploma.volodymyr.bicyclecity.presentation.view.BaseView
 interface MapView : BaseView {
     fun showLoading()
     fun hideLoading()
-    fun showMarkers(markers: List<Marker>)
+    fun showMarkers(markers: List<Marker>, isZoomNeeded: Boolean)
 }

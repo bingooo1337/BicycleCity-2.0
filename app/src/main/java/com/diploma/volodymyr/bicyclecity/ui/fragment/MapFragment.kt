@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.*
@@ -37,6 +39,8 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
         map.onCreate(savedInstanceState?.getBundle(MAP_VIEW_BUNDLE_KEY))
         map.getMapAsync(this)
+        initFilterSpinner()
+
         presenter.loadMarkers()
     }
 
@@ -91,10 +95,10 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
         progress_bar.setInvisible()
     }
 
-    override fun showMarkers(markers: List<Marker>) {
+    override fun showMarkers(markers: List<Marker>, isZoomNeeded: Boolean) {
         googleMap.clear()
         val bounds = LatLngBounds.Builder()
-        val displayWidth = activity?.windowManager?.getDisplayWidth()
+        val displayWidth = activity!!.windowManager.getDisplayWidth()
 
         markers.forEach {
             val icon = when (it.type) {
@@ -112,8 +116,23 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
             bounds.include(it.geo.getLatLng())
         }
 
-        displayWidth?.let {
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), it, it, 100))
+        if (isZoomNeeded)
+            googleMap.animateCamera(CameraUpdateFactory
+                    .newLatLngBounds(bounds.build(), displayWidth, displayWidth, 100))
+    }
+
+    private fun initFilterSpinner() {
+        val arrayAdapter = ArrayAdapter.createFromResource(context, R.array.marker_types,
+                android.R.layout.simple_spinner_item)
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        markers_filter_spinner.adapter = arrayAdapter
+
+        markers_filter_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                presenter.filterSelected(position)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 }
