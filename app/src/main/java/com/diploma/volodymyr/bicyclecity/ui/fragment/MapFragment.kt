@@ -6,17 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.common.*
 import com.diploma.volodymyr.bicyclecity.data.objects.Marker
-import com.diploma.volodymyr.bicyclecity.common.getLatLng
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.map.impl.MapPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.map.MapView
-import com.diploma.volodymyr.bicyclecity.common.setInvisible
-import com.diploma.volodymyr.bicyclecity.common.setVisible
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_map.*
+
 
 class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
 
@@ -91,11 +92,27 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
     }
 
     override fun showMarkers(markers: List<Marker>) {
+        val bounds = LatLngBounds.Builder()
+        val displayWidth = activity?.windowManager?.getDisplayWidth()
+
         markers.forEach {
+            val icon = when (it.type) {
+                Marker.MarkerType.PARKING -> R.drawable.marker_parking
+                Marker.MarkerType.RENT -> R.drawable.marker_rent
+                Marker.MarkerType.WORKSHOP -> R.drawable.marker_workshop
+            }
             googleMap.addMarker(MarkerOptions().apply {
                 position(it.geo.getLatLng())
-                title(it.name)
+                title(it.title)
+                snippet(it.desc)
+                anchor(0.5F, 1.0F)
+                icon(getBitmapDescriptorFromVector(icon))
             })
+            bounds.include(it.geo.getLatLng())
+        }
+
+        displayWidth?.let {
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), it, it, 100))
         }
     }
 }
