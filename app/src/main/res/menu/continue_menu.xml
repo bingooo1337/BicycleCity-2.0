@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/continue_create_group_ride"
+        android:id="@+id/continue_creating"
         android:icon="@drawable/ic_arrow_right"
-        android:title="@string/create_group_ride"
+        android:title="@string/continue_creating"
         app:showAsAction="ifRoom" />
 </menu>

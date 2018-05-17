@@ -48,10 +48,10 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        (outState.getBundle(MAP_VIEW_BUNDLE_KEY) ?: Bundle()).let {
-            outState.putBundle(MAP_VIEW_BUNDLE_KEY, it)
-            map.onSaveInstanceState(it)
-        }
+//        (outState.getBundle(MAP_VIEW_BUNDLE_KEY) ?: Bundle()).let {
+//            outState.putBundle(MAP_VIEW_BUNDLE_KEY, it)
+//            map.onSaveInstanceState(it)
+//        }
     }
 
     override fun onResume() {

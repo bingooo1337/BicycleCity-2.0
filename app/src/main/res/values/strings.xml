@@ -36,6 +36,7 @@
     <string name="loading_failed">Loading failed</string>
     <string name="title_activity_create_group_ride">Create group ride</string>
     <string name="title_activity_create_group_ride_route">Select the route</string>
+    <string name="title_activity_create_competition">Create competition</string>
     <string name="select">Select</string>
     <string name="choose_your_average_speed_usually">Choose your average speed usually</string>
 
@@ -63,11 +64,23 @@
     <string name="creator">Creator:</string>
     <string name="user_full_name_placeholder">%s %s</string>
     <string name="markers_type">Markers type</string>
+    <string name="choose_bicycle_type">Choose bicycle type</string>
+    <string name="choose_your_training_level">Choose your training level</string>
+    <string name="make_your_competition_private">Make your competition private?</string>
+    <string name="access_code_placeholder">Access code:</string>
+    <string name="continue_creating">Continue creating</string>
 
     <string-array name="marker_types">
         <item>All</item>
         <item>Parking</item>
         <item>Rent</item>
         <item>Workshop</item>
+    </string-array>
+
+    <string-array name="bicycle_types">
+        <item>Road</item>
+        <item>Mountain</item>
+        <item>Track</item>
+        <item>Time Trial</item>
     </string-array>
 </resources>

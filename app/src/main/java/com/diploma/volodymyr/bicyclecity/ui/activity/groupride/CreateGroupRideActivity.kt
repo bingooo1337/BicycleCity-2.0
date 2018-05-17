@@ -40,13 +40,13 @@ class CreateGroupRideActivity : BaseActivity(), CreateGroupRideView {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.create_group_ride_menu, menu)
+        menuInflater.inflate(R.menu.continue_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.continue_create_group_ride -> presenter
+            R.id.continue_creating -> presenter
                     .onContinueClicked(title_et.text.toString(),
                             description_et.text.toString(),
                             avg_speed_spinner.selectedItemPosition)
