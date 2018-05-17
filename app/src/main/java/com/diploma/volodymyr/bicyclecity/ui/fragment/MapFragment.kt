@@ -16,6 +16,7 @@ import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_map.*
@@ -85,6 +86,12 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
+
+//        googleMap.addMarker(MarkerOptions().position(LatLng(0.0, 0.0)))
+//        googleMap.setOnCameraMoveListener {
+//            googleMap.clear()
+//            googleMap.addMarker(MarkerOptions().position(googleMap.cameraPosition.target))
+//        }
     }
 
     override fun showLoading() {
