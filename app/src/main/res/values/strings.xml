@@ -67,8 +67,14 @@
     <string name="choose_bicycle_type">Choose bicycle type</string>
     <string name="choose_your_training_level">Choose your training level</string>
     <string name="make_your_competition_private">Make your competition private?</string>
-    <string name="access_code_placeholder">Access code:</string>
+    <string name="access_code_placeholder">Access code: %s</string>
     <string name="continue_creating">Continue creating</string>
+    <string name="value_was_copied">%s was copied to clipboard</string>
+    <string name="beginner">Beginner</string>
+    <string name="advanced_beginner">Advanced Beginner</string>
+    <string name="amateur">Amateur</string>
+    <string name="everyday_rider">Everyday rider</string>
+    <string name="professional">Professional</string>
 
     <string-array name="marker_types">
         <item>All</item>

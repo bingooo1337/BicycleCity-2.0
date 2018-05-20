@@ -10,7 +10,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/title_input_layout"
@@ -81,10 +82,58 @@
             android:id="@+id/training_level_seekbar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:max="10"
+            android:max="4"
             app:layout_constraintEnd_toEndOf="@id/title_input_layout"
             app:layout_constraintStart_toStartOf="@id/title_input_layout"
+            app:layout_constraintTop_toBottomOf="@id/seekbar_hint1" />
+
+        <TextView
+            android:id="@+id/seekbar_hint1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/beginner"
+            app:layout_constraintStart_toStartOf="@id/training_level_seekbar"
+            app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+        <TextView
+            android:id="@+id/seekbar_hint2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/advanced_beginner"
+            app:layout_constraintEnd_toStartOf="@+id/seekbar_hint4"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@id/training_level_seekbar"
+            app:layout_constraintTop_toBottomOf="@id/training_level_seekbar" />
+
+        <TextView
+            android:id="@+id/seekbar_hint3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/amateur"
+            app:layout_constraintEnd_toEndOf="@id/training_level_seekbar"
+            app:layout_constraintStart_toStartOf="@id/training_level_seekbar"
+            app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+        <TextView
+            android:id="@+id/seekbar_hint4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/everyday_rider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/seekbar_hint2"
+            app:layout_constraintTop_toBottomOf="@id/training_level_seekbar" />
+
+        <TextView
+            android:id="@+id/seekbar_hint5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/professional"
+            app:layout_constraintEnd_toEndOf="@id/training_level_seekbar"
             app:layout_constraintTop_toBottomOf="@id/textView3" />
 
         <TextView
@@ -96,7 +145,7 @@
             android:text="@string/make_your_competition_private"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/title_input_layout"
-            app:layout_constraintTop_toBottomOf="@id/training_level_seekbar" />
+            app:layout_constraintTop_toBottomOf="@id/seekbar_hint2" />
 
         <CheckBox
             android:id="@+id/private_checkbox"
@@ -108,26 +157,31 @@
             app:layout_constraintTop_toTopOf="@id/textView4" />
 
         <TextView
+            android:id="@+id/access_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:text="@string/access_code_placeholder"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/copy_code_button"
             app:layout_constraintStart_toStartOf="@id/title_input_layout"
             app:layout_constraintTop_toTopOf="@id/copy_code_button"
-            tools:text="Access code: A1B2C3D4" />
+            tools:text="Access code: A1B2C3D4"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/copy_code_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginTop="8dp"
             android:text="@android:string/copy"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/private_checkbox" />
+            app:layout_constraintTop_toBottomOf="@id/private_checkbox"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/date_text"
@@ -192,8 +246,10 @@
             android:id="@+id/select_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:text="@string/select"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/time_picker" />
