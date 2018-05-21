@@ -22,6 +22,11 @@ class CreateCompetitionPresenter : BasePresenter<CreateCompetitionView>(), ICrea
         else viewState.hidePrivateCode()
     }
 
+    override fun addPrizeClicked(hasPrize: Boolean) {
+        if (hasPrize) viewState.showPrizeEditText()
+        else viewState.hidePrizeEditText()
+    }
+
     override fun onCopyCodeClicked(clipboardManager: ClipboardManager?) {
         clipboardManager?.let {
             it.primaryClip = ClipData.newPlainText(code, code)

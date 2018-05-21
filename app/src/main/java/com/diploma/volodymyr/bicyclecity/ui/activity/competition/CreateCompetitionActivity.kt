@@ -12,10 +12,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
-import com.diploma.volodymyr.bicyclecity.common.getFormattedDateString
-import com.diploma.volodymyr.bicyclecity.common.getTimeString
-import com.diploma.volodymyr.bicyclecity.common.setGone
-import com.diploma.volodymyr.bicyclecity.common.setVisible
+import com.diploma.volodymyr.bicyclecity.common.*
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.competition.impl.CreateCompetitionPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.competition.CreateCompetitionView
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
@@ -63,16 +60,26 @@ class CreateCompetitionActivity : BaseActivity(), CreateCompetitionView {
         copy_code_button.setGone()
     }
 
+    override fun showPrizeEditText() {
+        prize_input_layout.setVisible()
+    }
+
+    override fun hidePrizeEditText() {
+        prize_input_layout.setGone()
+    }
+
     override fun showDatePicker() {
         date_picker.setVisible()
         time_picker.setGone()
         select_button.setVisible()
+        select_button.requestFocus()
     }
 
     override fun showTimePicker() {
         date_picker.setGone()
         time_picker.setVisible()
         select_button.setVisible()
+        select_button.requestFocus()
     }
 
     override fun hidePickers() {
@@ -108,6 +115,9 @@ class CreateCompetitionActivity : BaseActivity(), CreateCompetitionView {
 
         private_checkbox.setOnCheckedChangeListener { _, isChecked ->
             presenter.onIsPrivateChanged(isChecked)
+        }
+        prize_checkbox.setOnCheckedChangeListener { _, isChecked ->
+            presenter.addPrizeClicked(isChecked)
         }
         copy_code_button.setOnClickListener {
             presenter.onCopyCodeClicked(getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)

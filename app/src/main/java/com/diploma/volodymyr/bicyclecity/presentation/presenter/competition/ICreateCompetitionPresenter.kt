@@ -4,6 +4,7 @@ import android.content.ClipboardManager
 
 interface ICreateCompetitionPresenter {
     fun onIsPrivateChanged(isPrivate: Boolean)
+    fun addPrizeClicked(hasPrize: Boolean)
     fun onCopyCodeClicked(clipboardManager: ClipboardManager?)
     fun onDateCLicked()
     fun onTimeCLicked()

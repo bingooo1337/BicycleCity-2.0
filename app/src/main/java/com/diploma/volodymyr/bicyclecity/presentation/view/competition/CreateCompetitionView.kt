@@ -12,6 +12,8 @@ interface CreateCompetitionView : BaseView {
     fun setTime(time: String)
     fun showPrivateCode(code: String)
     fun hidePrivateCode()
+    fun showPrizeEditText()
+    fun hidePrizeEditText()
     fun setErrorHints(titleError: String, descError: String)
     @StateStrategyType(SkipStrategy::class)
     fun goToNextScreen()

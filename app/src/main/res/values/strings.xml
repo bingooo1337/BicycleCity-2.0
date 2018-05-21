@@ -75,6 +75,8 @@
     <string name="amateur">Amateur</string>
     <string name="everyday_rider">Everyday rider</string>
     <string name="professional">Professional</string>
+    <string name="prize">Prize</string>
+    <string name="prize_for_winner">Prize for winner</string>
 
     <string-array name="marker_types">
         <item>All</item>
