@@ -61,6 +61,7 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="riders">Riders</string>
+    <string name="riders_count">Riders :</string>
     <string name="creator">Creator:</string>
     <string name="user_full_name_placeholder">%s %s</string>
     <string name="markers_type">Markers type</string>
@@ -81,6 +82,8 @@
     <string name="finish">Finish</string>
     <string name="start_point">Start Point</string>
     <string name="finish_point">Finish Point</string>
+    <string name="recommended_training_level">Recommended training level :</string>
+    <string name="recommended_bicycle_type">Recommended bicycle type :</string>
 
     <string-array name="marker_types">
         <item>All</item>

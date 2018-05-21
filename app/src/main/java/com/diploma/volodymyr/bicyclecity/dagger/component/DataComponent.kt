@@ -3,6 +3,7 @@ package com.diploma.volodymyr.bicyclecity.dagger.component
 import com.diploma.volodymyr.bicyclecity.dagger.module.RepositoryModule
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl.SignInPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.auth.impl.SignUpPresenter
+import com.diploma.volodymyr.bicyclecity.presentation.presenter.competition.impl.CompetitionsListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRideDetailsPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.GroupRidesListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.map.impl.MapPresenter
@@ -23,6 +24,10 @@ interface DataComponent {
 
     fun inject(presenter: GroupRideDetailsPresenter)
 
+    // Competitions
+    fun inject(presenter: CompetitionsListPresenter)
+
+    // Map
     fun inject(presenter: MapPresenter)
 
     // Feed

@@ -18,7 +18,7 @@ import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.competition.CreateCompetitionActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
-import com.diploma.volodymyr.bicyclecity.ui.fragment.CompetitionsFragment
+import com.diploma.volodymyr.bicyclecity.ui.fragment.CompetitionsListFragment
 import com.diploma.volodymyr.bicyclecity.ui.fragment.GroupRidesListFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
@@ -96,7 +96,7 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
         fab.setOnClickListener {
             when (supportFragmentManager.findFragmentById(R.id.fragment_container)) {
                 is GroupRidesListFragment -> startActivity(CreateGroupRideActivity.getIntent(this))
-                is CompetitionsFragment -> startActivity(CreateCompetitionActivity.getIntent(this))
+                is CompetitionsListFragment -> startActivity(CreateCompetitionActivity.getIntent(this))
             }
         }
 

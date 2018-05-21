@@ -19,7 +19,8 @@ data class Competition(
         var start: @RawValue GeoPoint? = null,
         var finish: @RawValue GeoPoint? = null,
         var encodedRoute: String = "",
+        var distance: Double = 0.0,
         var bicycleType: BicycleType = BicycleType.ROAD,
         var trainingLevel: TrainingLevel = TrainingLevel.BEGINNER,
-        var users: ArrayList<String>? = arrayListOf()
+        var users: ArrayList<String> = arrayListOf()
 ) : Parcelable

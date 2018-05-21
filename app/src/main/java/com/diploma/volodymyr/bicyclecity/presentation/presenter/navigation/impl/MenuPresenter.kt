@@ -42,7 +42,7 @@ class MenuPresenter : BasePresenter<MenuView>(), IMenuPresenter {
                 }
                 R.id.nav_competition -> {
                     fragmentTag = COMPETITIONS_FRAGMENT
-                    CompetitionsFragment()
+                    CompetitionsListFragment()
                 }
                 R.id.nav_map -> {
                     fragmentTag = MAP_FRAGMENT

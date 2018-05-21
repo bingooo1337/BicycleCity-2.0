@@ -171,11 +171,12 @@ class SelectRoutePresenter() :
     }
 
     private fun createCompetition(competition: Competition, route: Leg) {
+        competition.distance = route.distance.value.toDouble()
         competition.encodedRoute = PolyUtil.encode(route.directionPoint)
 
         userRepository.getCurrentUser()?.let {
             competition.creatorId = it.uid
-            competition.users?.add(it.uid)
+            competition.users.add(it.uid)
         }
 
         competitionRepository.createCompetition(competition)
