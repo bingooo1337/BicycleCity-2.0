@@ -10,5 +10,7 @@ interface ICreateCompetitionPresenter {
     fun onTimeCLicked()
     fun onSelectClicked(day: Int, month: Int, year: Int)
     fun onSelectClicked(hour: Int, minute: Int)
-    fun onCreateClicked()
+    fun onCreateClicked(title: String, desc: String,
+                        bicycleTypePosition: Int, levelPosition: Int,
+                        prize: String)
 }

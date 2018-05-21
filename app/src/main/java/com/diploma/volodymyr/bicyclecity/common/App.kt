@@ -16,7 +16,7 @@ class App : Application() {
 
     private lateinit var googleMapsComponent: GoogleMapsComponent
     private lateinit var dataComponent: DataComponent
-    private lateinit var createGroupRideComponent: CreateGroupRideComponent
+    private lateinit var selectRouteComponent: SelectRouteComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -26,7 +26,7 @@ class App : Application() {
         dataComponent = DaggerDataComponent.builder()
                 .repositoryModule(RepositoryModule())
                 .build()
-        createGroupRideComponent = DaggerCreateGroupRideComponent.builder()
+        selectRouteComponent = DaggerSelectRouteComponent.builder()
                 .repositoryModule(RepositoryModule())
                 .googleMapsDirectionsModule(GoogleMapsDirectionsModule())
                 .build()
@@ -34,5 +34,5 @@ class App : Application() {
 
     fun getGoogleMapsComponent() = googleMapsComponent
     fun getDataComponent() = dataComponent
-    fun getCreateGroupRideComponent() = createGroupRideComponent
+    fun getSelectRouteComponent() = selectRouteComponent
 }

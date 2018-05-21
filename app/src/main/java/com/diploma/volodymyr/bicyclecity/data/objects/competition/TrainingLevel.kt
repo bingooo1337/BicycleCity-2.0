@@ -1,5 +1,5 @@
 package com.diploma.volodymyr.bicyclecity.data.objects.competition
 
 enum class TrainingLevel {
-     NOOB, PRO
+     BEGINNER, ADVANCED_BEGINNER, AMATEUR, EVERYDAY_RIDER, PROFESSIONAL
 }

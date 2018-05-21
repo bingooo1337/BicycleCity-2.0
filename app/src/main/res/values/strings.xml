@@ -77,6 +77,10 @@
     <string name="professional">Professional</string>
     <string name="prize">Prize</string>
     <string name="prize_for_winner">Prize for winner</string>
+    <string name="start">Start</string>
+    <string name="finish">Finish</string>
+    <string name="start_point">Start Point</string>
+    <string name="finish_point">Finish Point</string>
 
     <string-array name="marker_types">
         <item>All</item>

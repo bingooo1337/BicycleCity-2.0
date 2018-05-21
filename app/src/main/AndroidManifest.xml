@@ -35,7 +35,7 @@
             android:label="@string/title_activity_create_group_ride"
             android:parentActivityName=".ui.activity.navigation.MenuActivity" />
         <activity
-            android:name=".ui.activity.groupride.CreateGroupRideRouteActivity"
+            android:name=".ui.activity.SelectRouteActivity"
             android:label="@string/title_activity_create_group_ride_route"
             android:parentActivityName=".ui.activity.groupride.CreateGroupRideActivity" />
         <activity

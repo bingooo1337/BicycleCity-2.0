@@ -1,5 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.ui.activity.competition
 
+import android.app.Activity
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
@@ -13,15 +14,20 @@ import android.widget.ArrayAdapter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.*
+import com.diploma.volodymyr.bicyclecity.data.objects.competition.Competition
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.competition.impl.CreateCompetitionPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.competition.CreateCompetitionView
+import com.diploma.volodymyr.bicyclecity.ui.activity.SelectRouteActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
+import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
 import kotlinx.android.synthetic.main.activity_create_competition.*
 import java.util.*
 
 class CreateCompetitionActivity : BaseActivity(), CreateCompetitionView {
 
     companion object {
+        private const val NEXT_SCREEN_REQUEST_CODE = 1
+
         fun getIntent(context: Context) = Intent(context, CreateCompetitionActivity::class.java)
     }
 
@@ -43,6 +49,9 @@ class CreateCompetitionActivity : BaseActivity(), CreateCompetitionView {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.continue_creating -> {
+                presenter.onCreateClicked(title_et.text.toString(), description_et.text.toString(),
+                        bicycle_type_spinner.selectedItemPosition, training_level_seekbar.progress,
+                        prize_et.text.toString())
             }
             android.R.id.home -> finish()
         }
@@ -101,7 +110,13 @@ class CreateCompetitionActivity : BaseActivity(), CreateCompetitionView {
         description_input_layout.error = descError
     }
 
-    override fun goToNextScreen() {
+    override fun goToNextScreen(competition: Competition) {
+        startActivityForResult(SelectRouteActivity.getIntent(this, competition),
+                NEXT_SCREEN_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == NEXT_SCREEN_REQUEST_CODE && resultCode == Activity.RESULT_OK) finish()
     }
 
     private fun initView() {

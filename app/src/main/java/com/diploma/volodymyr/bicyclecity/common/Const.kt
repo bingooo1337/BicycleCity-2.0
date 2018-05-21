@@ -10,6 +10,7 @@ object Const {
     const val MARKERS = "markers"
     const val NEWS = "news"
     const val EVENTS = "events"
+    const val COMPETITIONS = "competitions"
 
     // Menu Fragments
     const val NEWS_FRAGMENT = "news_fragment"

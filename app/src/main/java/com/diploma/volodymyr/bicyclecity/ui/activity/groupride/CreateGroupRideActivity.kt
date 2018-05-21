@@ -19,6 +19,7 @@ import com.diploma.volodymyr.bicyclecity.common.setVisible
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl.CreateGroupRidePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.groupride.CreateGroupRideView
+import com.diploma.volodymyr.bicyclecity.ui.activity.SelectRouteActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
 import java.util.*
 
@@ -82,7 +83,7 @@ class CreateGroupRideActivity : BaseActivity(), CreateGroupRideView {
     }
 
     override fun goToNextScreen(groupRide: GroupRide) {
-        startActivityForResult(CreateGroupRideRouteActivity.getIntent(this, groupRide),
+        startActivityForResult(SelectRouteActivity.getIntent(this, groupRide),
                 NEXT_SCREEN_REQUEST_CODE)
     }
 
