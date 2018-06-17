@@ -16,6 +16,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.ui.activity.auth.SignInActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseActivity
+import com.diploma.volodymyr.bicyclecity.ui.activity.competition.CompetitionResultActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.competition.CreateCompetitionActivity
 import com.diploma.volodymyr.bicyclecity.ui.activity.groupride.CreateGroupRideActivity
 import com.diploma.volodymyr.bicyclecity.ui.fragment.CompetitionsListFragment
@@ -39,6 +40,8 @@ class MenuActivity : BaseActivity(), MenuView, NavigationView.OnNavigationItemSe
     }
 
     override fun openFragment(fragment: Fragment, tag: String) {
+//        startActivity(Intent(this, CompetitionResultActivity::class.java))
+//
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment, tag)
                 .addToBackStack(null)

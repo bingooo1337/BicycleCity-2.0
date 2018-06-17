@@ -77,9 +77,18 @@ dependencies {
     //Google Directions
     implementation 'com.akexorcist:googledirectionlibrary:1.1.1'
 
+    //HERE sdk
+    implementation(name:'HERE-sdk', ext:'aar')
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 kapt {

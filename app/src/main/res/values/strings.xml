@@ -37,6 +37,7 @@
     <string name="title_activity_create_group_ride">Create group ride</string>
     <string name="title_activity_create_group_ride_route">Select the route</string>
     <string name="title_activity_create_competition">Create competition</string>
+    <string name="title_activity_competition_result">Competition results</string>
     <string name="select">Select</string>
     <string name="choose_your_average_speed_usually">Choose your average speed usually</string>
 

@@ -133,7 +133,7 @@ class SelectRoutePresenter() :
                                 direction.routeList.first().legList.first().let {
                                     viewState.hideLoading()
                                     viewState.drawRoute(DirectionConverter.createPolyline(
-                                            App.instance, it.directionPoint, POLYLINE_WIDTH, Color.RED))
+                                                    App.instance, it.directionPoint, POLYLINE_WIDTH, Color.CYAN))
                                     route = it
                                 }
                             }

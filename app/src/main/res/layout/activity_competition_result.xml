@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.competition.CompetitionResultActivity">
+
+    <TextView
+        android:id="@+id/results_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:text="Your final results"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/final_position_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_rating"
+        android:text="Position in rating : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/results_tv" />
+
+    <TextView
+        android:id="@+id/position_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2/5"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/final_position_tv"
+        app:layout_constraintStart_toEndOf="@id/final_position_tv" />
+
+    <TextView
+        android:id="@+id/average_speed_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_competitions"
+        android:text="Average speed : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/final_position_tv" />
+
+    <TextView
+        android:id="@+id/average_speed_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="27.8 km/h"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/average_speed_tv"
+        app:layout_constraintStart_toEndOf="@id/average_speed_tv" />
+
+    <TextView
+        android:id="@+id/distance_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_distance"
+        android:text="Distance : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/average_speed_tv" />
+
+    <TextView
+        android:id="@+id/distance_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25.4 km"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/distance_tv"
+        app:layout_constraintStart_toEndOf="@id/distance_tv" />
+
+    <TextView
+        android:id="@+id/average_power_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_power"
+        android:text="Average power : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/distance_tv" />
+
+    <TextView
+        android:id="@+id/average_power_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="137 W"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/average_power_tv"
+        app:layout_constraintStart_toEndOf="@id/average_power_tv" />
+
+    <TextView
+        android:id="@+id/energy_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_energy"
+        android:text="Energy output : "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/average_power_tv" />
+
+    <TextView
+        android:id="@+id/energy_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="512 kJ"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/energy_tv"
+        app:layout_constraintStart_toEndOf="@id/energy_tv" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="32dp"
+        android:src="@drawable/ic_trophy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/energy_tv"
+        tools:ignore="ContentDescription" />
+
+</android.support.constraint.ConstraintLayout>

@@ -29,3 +29,5 @@ Thumbs.db
 obj/
 
 /gradlew.bat
+app/src/debug/res/values/
+app/src/release/
