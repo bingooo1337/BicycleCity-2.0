@@ -48,10 +48,6 @@ class MenuPresenter : BasePresenter<MenuView>(), IMenuPresenter {
                     fragmentTag = MAP_FRAGMENT
                     MapFragment()
                 }
-                R.id.nav_settings -> {
-                    fragmentTag = SETTINGS_FRAGMENT
-                    SettingsFragment()
-                }
                 else -> {
                     fragmentTag = NEWS_FRAGMENT
                     NewsFragment()

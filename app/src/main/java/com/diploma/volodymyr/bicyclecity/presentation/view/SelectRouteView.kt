@@ -1,7 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.presentation.view
 
-import com.diploma.volodymyr.bicyclecity.presentation.view.BaseView
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 
 interface SelectRouteView : BaseView {
@@ -11,8 +10,13 @@ interface SelectRouteView : BaseView {
     fun deactivateChoosingPoints()
     fun openChoosingStart()
     fun openChoosingFinish()
-    fun addMarker(coordinates: LatLng, pointName: String, isStart: Boolean)
+    fun clearMap()
+    fun addMarkers(markerStart: MarkerOptions? = null, startTitle: String? = null,
+                   markerFinish: MarkerOptions? = null, finishTitle: String? = null)
+
     fun drawRoute(polyline: PolylineOptions)
+    fun showDistance(distance: String)
+    fun showTime(time: String)
     fun setErrorHints(startError: String, finishError: String)
     fun closeScreenWithResult()
 }

@@ -22,6 +22,6 @@ class NewsPagerAdapter(fragmentManager: FragmentManager) :
     override fun getCount(): Int = FRAGMENTS_COUNT
 
     override fun getPageTitle(position: Int): CharSequence =
-            if (position == NEWS_FRAGMENT) App.instance.getString(R.string.news)
-            else App.instance.getString(R.string.events)
+            if (position == NEWS_FRAGMENT) App.INSTANSE.getString(R.string.news)
+            else App.INSTANSE.getString(R.string.events)
 }

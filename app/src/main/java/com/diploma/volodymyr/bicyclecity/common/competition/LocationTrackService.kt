@@ -6,7 +6,7 @@ import com.diploma.volodymyr.bicyclecity.model.CompetitionRepository
 class LocationTrackService(private val competitionId: String) {
 
     init {
-        App.instance.getDataComponent().inject(this)
+        App.INSTANSE.getDataComponent().inject(this)
     }
 
     lateinit var repository: CompetitionRepository

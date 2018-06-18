@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".ui.activity.SelectRouteActivity"
     tools:ignore="ContentDescription">
 
@@ -83,6 +84,35 @@
             android:inputType="none" />
     </android.support.design.widget.TextInputLayout>
 
+    <TextView
+        android:id="@+id/distance_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="4dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/time_tv"
+        app:layout_constraintStart_toStartOf="@id/choose_finish_layout"
+        app:layout_constraintTop_toBottomOf="@id/choose_finish_layout"
+        tools:text="Distance: 2434 m" />
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:textSize="16sp"
+        android:layout_marginStart="1dp"
+        android:gravity="end"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/choose_finish_layout"
+        app:layout_constraintStart_toEndOf="@id/distance_tv"
+        app:layout_constraintTop_toBottomOf="@id/choose_finish_layout"
+        tools:text="Time: 240 mins" />
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -90,7 +120,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choose_finish_layout" />
+        app:layout_constraintTop_toBottomOf="@id/distance_tv" />
 
     <ProgressBar
         android:id="@+id/choose_route_progress_bar"

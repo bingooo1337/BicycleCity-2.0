@@ -99,7 +99,7 @@ class GroupRideDetailsActivity : BaseActivity(), GroupRideDetailsView, OnMapRead
             description_tv.text = description
             date_tv.text = date?.getFormattedDateString()
             time_tv.text = date?.getTimeString()
-            distance_tv.text = getString(R.string.km_placeholder, (distance / 100).roundToInt() / 10.0)
+            distance_tv.text = getString(R.string.km_placeholder, distance / 1000.0)
             approximate_time_tv.text = getString(R.string.mins_placeholder, approximateTime)
         }
     }

@@ -10,5 +10,5 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideApplication() = App.instance
+    fun provideApplication() = App.INSTANSE
 }

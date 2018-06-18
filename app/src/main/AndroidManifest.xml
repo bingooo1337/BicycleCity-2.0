@@ -5,6 +5,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".common.App"
@@ -15,20 +18,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="com.here.android.maps.appid"
             android:value="@string/here_app_id" />
         <meta-data
             android:name="com.here.android.maps.apptoken"
             android:value="@string/here_app_code" />
+        <meta-data
+            android:name="com.here.android.maps.license.key"
+            android:value="@string/here_license" />
 
         <activity
             android:name=".ui.activity.navigation.MenuActivity"
-            android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.auth.SignInActivity">
             <intent-filter>
@@ -57,6 +62,15 @@
         <activity
             android:name=".ui.activity.competition.CompetitionResultActivity"
             android:label="@string/title_activity_competition_result" />
+
+        <service
+            android:name="com.here.android.mpa.service.MapService"
+            android:exported="false"
+            android:label="@string/bicycle_city_here_service">
+            <intent-filter>
+                <action android:name="Bicycle City HERE Service" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

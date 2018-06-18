@@ -40,14 +40,14 @@ class CreateGroupRidePresenter : BasePresenter<CreateGroupRideView>(), ICreateGr
     }
 
     override fun onContinueClicked(title: String, desc: String, avgSpeedItemPosition: Int) {
-        App.instance.getString(R.string.required).let {
+        App.INSTANSE.getString(R.string.required).let {
             val titleIsEmpty = title.isBlank()
             val descIsEmpty = desc.isBlank()
             viewState.setErrorHints(if (titleIsEmpty) it else "", if (descIsEmpty) it else "")
             if (titleIsEmpty || descIsEmpty) return
         }
 
-        val avgSpeed = App.instance.resources
+        val avgSpeed = App.INSTANSE.resources
                 .getStringArray(R.array.avg_speed)[avgSpeedItemPosition]
                 .substring(0, 2)
                 .toInt()

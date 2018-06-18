@@ -35,7 +35,7 @@ class RecyclerGroupRidesAdapter(private val listener: (GroupRide) -> Unit)
                 with(itemView) {
                     title.text = item.title
                     date_time.text = GROUP_RIDE_DATE_FORMAT.format(item.date)
-                    distance.text = context.getString(R.string.km_placeholder, (item.distance / 100).roundToInt() / 10.0)
+                    distance.text = context.getString(R.string.km_placeholder, item.distance / 1000.0)
                     time.text = context.getString(R.string.mins_placeholder, item.approximateTime)
                     Glide.with(itemView.context).load(item.getStaticMapPath()).into(map_image)
                     setOnClickListener { listener(item) }

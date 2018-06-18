@@ -1,8 +1,6 @@
 package com.diploma.volodymyr.bicyclecity.presentation.presenter.groupride.impl
 
-import android.graphics.Color
 import android.util.Log
-import com.akexorcist.googledirection.util.DirectionConverter
 import com.arellomobile.mvp.InjectViewState
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.*
@@ -108,7 +106,7 @@ class GroupRideDetailsPresenter(private val groupRideId: String) :
                         }
                         if (users.size == usersIds.size)
                             viewState.showUsersList(users
-                                    .map { App.instance.getString(R.string.user_full_name_placeholder, it.firstName, it.lastName) }
+                                    .map { App.INSTANSE.getString(R.string.user_full_name_placeholder, it.firstName, it.lastName) }
                                     .reduce { acc, s -> acc + "\n" + s })
                     }
         }

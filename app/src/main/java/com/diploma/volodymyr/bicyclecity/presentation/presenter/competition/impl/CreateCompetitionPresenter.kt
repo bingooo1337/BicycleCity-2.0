@@ -39,7 +39,7 @@ class CreateCompetitionPresenter : BasePresenter<CreateCompetitionView>(), ICrea
     override fun onCopyCodeClicked(clipboardManager: ClipboardManager?) {
         clipboardManager?.let {
             it.primaryClip = ClipData.newPlainText(code, code)
-            viewState.showToastMessage(App.instance.getString(R.string.value_was_copied, code))
+            viewState.showToastMessage(App.INSTANSE.getString(R.string.value_was_copied, code))
         }
     }
 
@@ -69,7 +69,7 @@ class CreateCompetitionPresenter : BasePresenter<CreateCompetitionView>(), ICrea
     }
 
     override fun onCreateClicked(title: String, desc: String, bicycleTypePosition: Int, levelPosition: Int, prize: String) {
-        App.instance.getString(R.string.required).let {
+        App.INSTANSE.getString(R.string.required).let {
             val titleIsEmpty = title.isBlank()
             val descIsEmpty = desc.isBlank()
             viewState.setErrorHints(

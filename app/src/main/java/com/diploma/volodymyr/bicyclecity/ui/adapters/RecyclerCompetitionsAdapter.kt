@@ -21,14 +21,14 @@ class RecyclerCompetitionsAdapter(private val listener: (Competition) -> Unit) :
             field = value
             notifyDataSetChanged()
         }
-    private val trainingLevels = with(App.instance) {
+    private val trainingLevels = with(App.INSTANSE) {
         arrayOf(getString(R.string.beginner),
                 getString(R.string.advanced_beginner),
                 getString(R.string.amateur),
                 getString(R.string.everyday_rider),
                 getString(R.string.professional))
     }
-    private val bicycleTypes = App.instance.resources.getStringArray(R.array.bicycle_types)
+    private val bicycleTypes = App.INSTANSE.resources.getStringArray(R.array.bicycle_types)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             CompetitionsViewHolder(parent.inflate(R.layout.recycler_competitions_item))
@@ -48,8 +48,7 @@ class RecyclerCompetitionsAdapter(private val listener: (Competition) -> Unit) :
             with(itemView) {
                 title.text = item.title
                 date_time.text = GROUP_RIDE_DATE_FORMAT.format(item.date)
-                distance.text = context.getString(R.string.km_placeholder,
-                        (item.distance / 100).roundToInt() / 10.0)
+                distance.text = context.getString(R.string.km_placeholder, item.distance / 1000.0)
                 riders_count.text = item.users.size.toString()
                 level.text = when (item.trainingLevel) {
                     TrainingLevel.BEGINNER -> trainingLevels[0]

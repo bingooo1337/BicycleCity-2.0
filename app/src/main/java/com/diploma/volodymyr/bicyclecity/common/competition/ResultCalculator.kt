@@ -10,7 +10,7 @@ import javax.inject.Inject
 class ResultCalculator(private val locationTracks: Map<String, Map<GeoPoint, Date>>) {
 
     init {
-        App.instance.getDataComponent().inject(this)
+        App.INSTANSE.getDataComponent().inject(this)
     }
 
     @Inject

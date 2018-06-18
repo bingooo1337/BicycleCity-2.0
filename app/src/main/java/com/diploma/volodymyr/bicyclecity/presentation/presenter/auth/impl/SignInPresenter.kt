@@ -52,11 +52,11 @@ class SignInPresenter : BasePresenter<SignInView>(), ISignInPresenter {
         var validated = true
 
         if (login.isEmpty()) {
-            viewState.showLoginError(App.instance.getString(R.string.required))
+            viewState.showLoginError(App.INSTANSE.getString(R.string.required))
             validated = false
         }
         if (password.isEmpty()) {
-            viewState.showPasswordError(App.instance.getString(R.string.required))
+            viewState.showPasswordError(App.INSTANSE.getString(R.string.required))
             validated = false
         }
 

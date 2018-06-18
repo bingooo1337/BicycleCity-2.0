@@ -40,5 +40,7 @@ object Const {
     }
 
     // Map
-    const val POLYLINE_WIDTH = 5
+    const val POLYLINE_WIDTH = 8
+    const val CAMERA_PADDING = 100
+    const val CAMERA_ZOOM = 10F
 }

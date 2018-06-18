@@ -10,6 +10,8 @@ import android.view.MenuItem
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.diploma.volodymyr.bicyclecity.R
+import com.diploma.volodymyr.bicyclecity.common.Const.CAMERA_PADDING
+import com.diploma.volodymyr.bicyclecity.common.Const.CAMERA_ZOOM
 import com.diploma.volodymyr.bicyclecity.common.getDisplayWidth
 import com.diploma.volodymyr.bicyclecity.common.setInvisible
 import com.diploma.volodymyr.bicyclecity.common.setVisible
@@ -26,7 +28,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import kotlinx.android.synthetic.main.activity_create_group_ride_route.*
+import kotlinx.android.synthetic.main.activity_select_route.*
 
 class SelectRouteActivity : BaseActivity(), SelectRouteView, OnMapReadyCallback {
 
@@ -51,7 +53,6 @@ class SelectRouteActivity : BaseActivity(), SelectRouteView, OnMapReadyCallback 
     private lateinit var map: GoogleMap
     private var markerStart: Marker? = null
     private var markerFinish: Marker? = null
-    private var polyline: Polyline? = null
 
     private var groupRide: GroupRide? = null
     private var competition: Competition? = null
@@ -65,7 +66,7 @@ class SelectRouteActivity : BaseActivity(), SelectRouteView, OnMapReadyCallback 
         groupRide = intent.getParcelableExtra(GROUP_RIDE)
         competition = intent.getParcelableExtra(COMPETITION)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_group_ride_route)
+        setContentView(R.layout.activity_select_route)
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -74,7 +75,7 @@ class SelectRouteActivity : BaseActivity(), SelectRouteView, OnMapReadyCallback 
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.create_group_ride_route_menu, menu)
+        menuInflater.inflate(R.menu.select_route_menu, menu)
         return true
     }
 
@@ -100,42 +101,58 @@ class SelectRouteActivity : BaseActivity(), SelectRouteView, OnMapReadyCallback 
         choose_route_progress_bar.setInvisible()
     }
 
-    override fun addMarker(coordinates: LatLng, pointName: String, isStart: Boolean) {
-        if (isStart) {
-            markerStart?.remove()
-            markerStart = map.addMarker(MarkerOptions()
-                    .position(coordinates)
-                    .title(getString(R.string.start))
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+    override fun clearMap() {
+        map.clear()
+    }
 
-            choose_start.setText(pointName)
-            choose_start_layout.hint = getString(R.string.start_point)
-        } else {
-            markerFinish?.remove()
-            markerFinish = map.addMarker(MarkerOptions()
-                    .position(coordinates)
-                    .title(getString(R.string.finish))
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-            )
-            choose_finish.setText(pointName)
-            choose_finish_layout.hint = getString(R.string.finish_point)
-        }
+    override fun addMarkers(markerStart: MarkerOptions?, startTitle: String?,
+                            markerFinish: MarkerOptions?, finishTitle: String?) {
         if (markerStart != null && markerFinish != null) {
+            clearMap()
             val bounds = LatLngBounds.Builder()
-                    .include(markerStart!!.position)
-                    .include(markerFinish!!.position)
+                    .include(markerStart.position)
+                    .include(markerFinish.position)
                     .build()
             val displayWidth = windowManager.getDisplayWidth()
-            map.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, displayWidth, displayWidth, 100))
-        } else {
             map.animateCamera(CameraUpdateFactory
-                    .newCameraPosition(CameraPosition.fromLatLngZoom(coordinates, 10F)))
+                    .newLatLngBounds(bounds, displayWidth, displayWidth, CAMERA_PADDING))
+        }
+
+        markerStart?.let {
+            this.markerStart?.remove()
+            this.markerStart = map.addMarker(it)
+            choose_start.setText(startTitle)
+            choose_start_layout.hint = getString(R.string.start_point)
+            if (markerFinish == null) {
+                map.animateCamera(CameraUpdateFactory.newCameraPosition(
+                        CameraPosition.fromLatLngZoom(it.position, CAMERA_ZOOM)))
+            }
+        }
+
+        markerFinish?.let {
+            this.markerFinish?.remove()
+            this.markerFinish = map.addMarker(it)
+            choose_finish.setText(finishTitle)
+            choose_finish_layout.hint = getString(R.string.finish_point)
+            if (markerStart == null) {
+                map.animateCamera(CameraUpdateFactory.newCameraPosition(
+                        CameraPosition.fromLatLngZoom(it.position, CAMERA_ZOOM)))
+            }
         }
     }
 
     override fun drawRoute(polyline: PolylineOptions) {
-        this.polyline?.remove()
-        this.polyline = map.addPolyline(polyline)
+        map.addPolyline(polyline)
+    }
+
+    override fun showDistance(distance: String) {
+        distance_tv.text = distance
+        distance_tv.setVisible()
+    }
+
+    override fun showTime(time: String) {
+        time_tv.text = time
+        time_tv.setVisible()
     }
 
     override fun activateChoosingPoints() {

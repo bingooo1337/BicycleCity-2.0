@@ -38,7 +38,7 @@ fun Context.showShortToast(message: String) {
 }
 
 fun Context.showShortToast(stringId: Int) {
-    App.instance.getString(stringId)?.let {
+    App.INSTANSE.getString(stringId)?.let {
         Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
     }
 }
@@ -48,7 +48,7 @@ fun Context.showLongToast(message: String) {
 }
 
 fun Context.showLongToast(stringId: Int) {
-    App.instance.getString(stringId)?.let {
+    App.INSTANSE.getString(stringId)?.let {
         Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
     }
 }
@@ -90,10 +90,10 @@ fun GroupRide.getStaticMapPath() =
                 MARKER_START + "${start?.latitude},${start?.longitude}&" +
                 MARKER_FINISH + "${finish?.latitude},${finish?.longitude}&" +
                 POLYLINE_PATH_SETTINGS + "$encodedRoute&" +
-                API_KEY + App.instance.getString(R.string.google_maps_key)
+                API_KEY + App.INSTANSE.getString(R.string.google_maps_key)
 
 fun List<LatLng>.getPolyLineOptions(): PolylineOptions = DirectionConverter
-        .createPolyline(App.instance, ArrayList(this), POLYLINE_WIDTH, Color.RED)
+        .createPolyline(App.INSTANSE, ArrayList(this), POLYLINE_WIDTH, Color.RED)
 
 fun WindowManager.getDisplayWidth(): Int {
     val metrics = DisplayMetrics()
@@ -103,7 +103,7 @@ fun WindowManager.getDisplayWidth(): Int {
 
 fun getBitmapDescriptorFromVector(id: Int): BitmapDescriptor {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        val vectorDrawable = ContextCompat.getDrawable(App.instance, id) as VectorDrawable
+        val vectorDrawable = ContextCompat.getDrawable(App.INSTANSE, id) as VectorDrawable
 
         val h = vectorDrawable.intrinsicHeight
         val w = vectorDrawable.intrinsicWidth

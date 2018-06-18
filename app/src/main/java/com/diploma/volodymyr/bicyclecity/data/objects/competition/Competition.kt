@@ -19,7 +19,7 @@ data class Competition(
         var start: @RawValue GeoPoint? = null,
         var finish: @RawValue GeoPoint? = null,
         var encodedRoute: String = "",
-        var distance: Double = 0.0,
+        var distance: Int = -1,
         var bicycleType: BicycleType = BicycleType.ROAD,
         var trainingLevel: TrainingLevel = TrainingLevel.BEGINNER,
         var users: ArrayList<String> = arrayListOf()
