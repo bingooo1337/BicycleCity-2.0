@@ -31,4 +31,4 @@ obj/
 /gradlew.bat
 app/src/debug/res/values/
 app/src/release/
-app/libs
+/app/libs/
