@@ -38,7 +38,9 @@ class CompetitionsListPresenter : BasePresenter<CompetitionsListView>(), ICompet
                     }
 
                     snapshot?.let {
-                        viewState.showCompetitions(it.toObjects(Competition::class.java))
+                        viewState.showCompetitions(it.documents.mapNotNull {
+                            it.toObject(Competition::class.java).apply { this?.id = it.id }
+                        })
                     }
                 }
     }

@@ -7,7 +7,6 @@ import com.diploma.volodymyr.bicyclecity.common.Const.COMPETITIONS_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.common.Const.GROUP_RIDES_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.common.Const.MAP_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.common.Const.NEWS_FRAGMENT
-import com.diploma.volodymyr.bicyclecity.common.Const.SETTINGS_FRAGMENT
 import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.base.BasePresenter
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.navigation.IMenuPresenter

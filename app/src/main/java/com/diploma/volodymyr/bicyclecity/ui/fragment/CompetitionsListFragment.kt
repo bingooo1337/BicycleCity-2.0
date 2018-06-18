@@ -11,6 +11,7 @@ import com.diploma.volodymyr.bicyclecity.data.objects.competition.Competition
 import com.diploma.volodymyr.bicyclecity.presentation.presenter.competition.impl.CompetitionsListPresenter
 import com.diploma.volodymyr.bicyclecity.presentation.view.competition.CompetitionsListView
 import com.diploma.volodymyr.bicyclecity.ui.activity.base.BaseFragment
+import com.diploma.volodymyr.bicyclecity.ui.activity.competition.CompetitionDetailsActivity
 import com.diploma.volodymyr.bicyclecity.ui.adapters.RecyclerCompetitionsAdapter
 import kotlinx.android.synthetic.main.fragment_competitions.*
 
@@ -43,9 +44,12 @@ class CompetitionsListFragment : BaseFragment(), CompetitionsListView {
     }
 
     private fun initView() {
-        adapter = RecyclerCompetitionsAdapter { showToastMessage(it.title) }
+        adapter = RecyclerCompetitionsAdapter {
+            startActivity(CompetitionDetailsActivity.getIntent(context!!, it.title, it.id))
+        }
 
         competitions_recycler.layoutManager = LinearLayoutManager(context!!)
         competitions_recycler.adapter = adapter
+        swipe_layout.setOnRefreshListener { presenter.onRefreshSwiped() }
     }
 }

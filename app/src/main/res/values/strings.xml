@@ -82,6 +82,9 @@
     <string name="recommended_training_level">Recommended training level :</string>
     <string name="recommended_bicycle_type">Recommended bicycle type :</string>
     <string name="bicycle_city_here_service" translatable="false">Bicycle City HERE Service</string>
+    <string name="participants">Participants</string>
+    <string name="ready">Ready</string>
+    <string name="ready_count">Ready %d/%d</string>
 
     <string-array name="marker_types">
         <item>All</item>

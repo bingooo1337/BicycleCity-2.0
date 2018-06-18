@@ -24,10 +24,7 @@ import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.MARKER_START
 import com.diploma.volodymyr.bicyclecity.common.Const.NetworkCalls.POLYLINE_PATH_SETTINGS
 import com.diploma.volodymyr.bicyclecity.common.Const.POLYLINE_WIDTH
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.maps.model.*
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.GeoPoint
 import java.util.*
@@ -119,4 +116,13 @@ fun getBitmapDescriptorFromVector(id: Int): BitmapDescriptor {
     } else {
         return BitmapDescriptorFactory.fromResource(id)
     }
+}
+
+fun LatLng?.toMarkerOptions(isStart: Boolean) = this?.let {
+    MarkerOptions()
+            .position(it)
+            .title(App.INSTANSE.getString(if (isStart) R.string.start else R.string.finish))
+            .icon(BitmapDescriptorFactory.defaultMarker(
+                    if (isStart) BitmapDescriptorFactory.HUE_GREEN
+                    else BitmapDescriptorFactory.HUE_RED))
 }

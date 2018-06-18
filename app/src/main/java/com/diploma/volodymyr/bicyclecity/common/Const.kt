@@ -17,7 +17,6 @@ object Const {
     const val GROUP_RIDES_FRAGMENT = "group_rides_fragment"
     const val COMPETITIONS_FRAGMENT = "competitions_fragment"
     const val MAP_FRAGMENT = "map_fragment"
-    const val SETTINGS_FRAGMENT = "settings_fragment"
 
     // Date Formats
     val GROUP_RIDE_DATE_FORMAT: SimpleDateFormat

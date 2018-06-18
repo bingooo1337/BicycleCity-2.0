@@ -22,5 +22,6 @@ data class Competition(
         var distance: Int = -1,
         var bicycleType: BicycleType = BicycleType.ROAD,
         var trainingLevel: TrainingLevel = TrainingLevel.BEGINNER,
-        var users: ArrayList<String> = arrayListOf()
+        var users: ArrayList<String> = arrayListOf(),
+        var readyUsers: ArrayList<String>? = arrayListOf()
 ) : Parcelable

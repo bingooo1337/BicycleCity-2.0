@@ -8,14 +8,16 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
 import java.util.*
 
-class CompetitionRepositoryImpl(db: FirebaseFirestore) :
-        BaseRepository(db), CompetitionRepository {
+class CompetitionRepositoryImpl(db: FirebaseFirestore) : BaseRepository(db), CompetitionRepository {
 
     override fun getCompetitions(): CollectionReference =
             db.collection(COMPETITIONS)
 
-    override fun getCompetitionById(competitionId: String): DocumentReference =
-            db.collection(COMPETITIONS).document(competitionId)
+    override fun getCompetitionById(id: String): DocumentReference =
+            db.collection(COMPETITIONS).document(id)
+
+    override fun updateCompetition(id: String, competition: Competition): Task<Void> =
+            db.collection(COMPETITIONS).document(id).set(competition)
 
     override fun createCompetition(competition: Competition): Task<Void> =
             db.collection(COMPETITIONS).document().set(competition)

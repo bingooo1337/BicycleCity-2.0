@@ -1,9 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.activity.competition.CompetitionDetailsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true">
+
+        <fragment
+            android:id="@+id/competition_details_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="w,0.6:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/competition_description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="24dp"
+            android:text="@string/description"
+            app:layout_constraintTop_toBottomOf="@id/competition_details_map" />
+
+        <TextView
+            android:id="@+id/competition_distance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_distance"
+            android:text="@string/distance"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/competition_description_tv"
+            tools:text="25.58 km" />
+
+        <TextView
+            android:id="@+id/competition_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_calendar"
+            android:text="@string/date"
+            app:layout_constraintEnd_toStartOf="@id/competition_time_tv"
+            app:layout_constraintTop_toBottomOf="@id/competition_description_tv" />
+
+        <TextView
+            android:id="@+id/competition_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_time"
+            android:gravity="center"
+            android:text="@string/time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/competition_description_tv" />
+
+        <TextView
+            android:id="@+id/bicycle_type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_competitions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/competition_distance_tv"
+            tools:text="Bicycle type: Road" />
+
+        <TextView
+            android:id="@+id/training_level_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_power"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bicycle_type_tv"
+            tools:text="Training level: Amateur" />
+
+        <TextView
+            android:id="@+id/prize_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_trophy"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/training_level_tv"
+            tools:text="Beer"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/ready_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/ready"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/prize_tv" />
+
+        <TextView
+            android:id="@+id/ready_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/ready_button"
+            app:layout_constraintStart_toStartOf="@id/ready_button"
+            app:layout_constraintTop_toBottomOf="@id/ready_button"
+            tools:text="Ready 3/5" />
+
+        <TextView
+            android:id="@+id/riders_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_group"
+            android:gravity="center"
+            android:text="@string/participants"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ready_tv" />
+
+        <TextView
+            android:id="@+id/competition_riders_list_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:layout_constraintTop_toBottomOf="@id/riders_tv"
+            tools:text="rider 1\nrider 2\nrider 3\nrider 4\nrider 5" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/competition_riders_list_tv"
+            app:srcCompat="@drawable/ic_plus" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/fab_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fab_join"
+            app:layout_constraintVertical_bias="1">
+
+            <TextView
+                android:id="@+id/competition_creator_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/creator"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/competition_creator_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/competition_creator_tv"
+                tools:text="Volodymyr Kamyshanov" />
+
+            <TextView
+                android:id="@+id/competition_creator_email_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/competition_creator_name_tv"
+                tools:text="bingooo1337@gmail.com" />
+
+            <TextView
+                android:id="@+id/competition_creator_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/competition_creator_name_tv"
+                tools:text="+380999511411" />
+        </android.support.constraint.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/competition_details_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

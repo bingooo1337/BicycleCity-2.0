@@ -9,6 +9,7 @@ import com.diploma.volodymyr.bicyclecity.R
 import com.diploma.volodymyr.bicyclecity.common.Const.POLYLINE_WIDTH
 import com.diploma.volodymyr.bicyclecity.common.getGeoPoint
 import com.diploma.volodymyr.bicyclecity.common.subscribe
+import com.diploma.volodymyr.bicyclecity.common.toMarkerOptions
 import com.diploma.volodymyr.bicyclecity.data.objects.GroupRide
 import com.diploma.volodymyr.bicyclecity.data.objects.competition.Competition
 import com.diploma.volodymyr.bicyclecity.model.CompetitionRepository
@@ -82,8 +83,8 @@ class SelectRoutePresenter() :
         start?.let {
             groupRide?.start = it.latLng.getGeoPoint()
             competition?.start = it.latLng.getGeoPoint()
-            viewState.addMarkers(getMarkerOptions(it, true), it.name.toString(),
-                    getMarkerOptions(finish, false), finish?.name.toString())
+            viewState.addMarkers(it.latLng.toMarkerOptions(true), it.name.toString(),
+                    finish?.latLng.toMarkerOptions(false), finish?.name.toString())
         }
         viewState.activateChoosingPoints()
         createDirection(start?.latLng, finish?.latLng)
@@ -94,8 +95,8 @@ class SelectRoutePresenter() :
         finish?.let {
             groupRide?.finish = it.latLng.getGeoPoint()
             competition?.finish = it.latLng.getGeoPoint()
-            viewState.addMarkers(getMarkerOptions(start, true), start?.name.toString(),
-                    getMarkerOptions(it, false), it.name.toString())
+            viewState.addMarkers(start?.latLng.toMarkerOptions(true), start?.name.toString(),
+                    it.latLng.toMarkerOptions(false), it.name.toString())
         }
         viewState.activateChoosingPoints()
         createDirection(start?.latLng, finish?.latLng)
@@ -265,14 +266,5 @@ class SelectRoutePresenter() :
 
     private fun getTimeString(time: Int) = App.INSTANSE.let {
         it.getString(R.string.time) + ": " + it.getString(R.string.mins_placeholder, time)
-    }
-
-    private fun getMarkerOptions(place: Place?, isStart: Boolean) = place?.let {
-        MarkerOptions()
-                .position(place.latLng)
-                .title(place.name.toString())
-                .icon(BitmapDescriptorFactory.defaultMarker(
-                        if (isStart) BitmapDescriptorFactory.HUE_GREEN
-                        else BitmapDescriptorFactory.HUE_RED))
     }
 }

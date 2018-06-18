@@ -9,7 +9,8 @@ import java.util.*
 
 interface CompetitionRepository {
     fun getCompetitions(): CollectionReference
-    fun getCompetitionById(competitionId: String): DocumentReference
+    fun getCompetitionById(id: String): DocumentReference
+    fun updateCompetition(id: String, competition: Competition): Task<Void>
     fun createCompetition(competition: Competition): Task<Void>
     fun saveLocationTrack(competitionId: String, locationTrack: Map<GeoPoint, Date>)
     fun getLocationTrack(competitionId: String)
