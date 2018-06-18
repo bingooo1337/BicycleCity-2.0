@@ -37,7 +37,7 @@
     <string name="failed">Не вдалося</string>
     <string name="title_activity_maps">Карта</string>
     <string name="choose_your_average_speed_usually">Виберіть свою звичайну середню швидкість</string>
-    <string name="select">Виберіть</string>
+    <string name="select">Вибрати</string>
     <string name="title_activity_competition_result">Результати змагання</string>
     <string name="title_activity_create_competition">Створення змагання</string>
     <string name="title_activity_create_group_ride_route">Виберіть маршрут</string>
@@ -68,4 +68,18 @@
     <string name="password">Пароль</string>
     <string name="email">Електронна пошта</string>
     <string name="approximate_time">Прогнозований час</string>
+
+    <string-array name="marker_types">
+        <item>Усі</item>
+        <item>Паркінг</item>
+        <item>Оренда</item>
+        <item>Майстерня</item>
+    </string-array>
+
+    <string-array name="bicycle_types">
+        <item>Шосейний</item>
+        <item>Гірний</item>
+        <item>Трековий</item>
+        <item>Тріатлон</item>
+    </string-array>
 </resources>

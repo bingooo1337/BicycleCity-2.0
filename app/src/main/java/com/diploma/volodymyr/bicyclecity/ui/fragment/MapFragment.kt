@@ -45,15 +45,6 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
         presenter.loadMarkers()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-//        (outState.getBundle(MAP_VIEW_BUNDLE_KEY) ?: Bundle()).let {
-//            outState.putBundle(MAP_VIEW_BUNDLE_KEY, it)
-//            map.onSaveInstanceState(it)
-//        }
-    }
-
     override fun onResume() {
         super.onResume()
         map.onResume()
@@ -65,23 +56,23 @@ class MapFragment : BaseFragment(), MapView, OnMapReadyCallback {
     }
 
     override fun onStop() {
-        super.onStop()
         map.onStop()
+        super.onStop()
     }
 
     override fun onPause() {
-        super.onPause()
         map.onPause()
+        super.onPause()
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         map.onDestroy()
+        super.onDestroy()
     }
 
     override fun onLowMemory() {
-        super.onLowMemory()
         map.onLowMemory()
+        super.onLowMemory()
     }
 
     override fun onMapReady(map: GoogleMap) {
