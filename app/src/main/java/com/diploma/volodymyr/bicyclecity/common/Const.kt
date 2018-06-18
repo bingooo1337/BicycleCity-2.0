@@ -20,7 +20,7 @@ object Const {
 
     // Date Formats
     val GROUP_RIDE_DATE_FORMAT: SimpleDateFormat
-        get() = SimpleDateFormat("HH:mm 'on' MMMM d", Locale.getDefault())
+        get() = SimpleDateFormat("HH:mm MMMM d", Locale.getDefault())
     val DEFAULT_DATE_FORMAT: SimpleDateFormat
         get() = SimpleDateFormat("dd MMMM y", Locale.getDefault())
     val DEFAULT_TIME_FORMAT: SimpleDateFormat
